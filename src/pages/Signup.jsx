@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Signup = () => {
   return (
     <div className="w-full h-screen bg-amber-100">
-      <div className="fixed w-full px-4 py-36 z-50">
+      <div className="fixed w-full px-4 py-20 z-50">
         <div className="max-w-[450px] h-[600px] bg-white mx-auto rounded-2xl shadow-lg">
           <div className="max-w-[380px] mx-auto py-10">
             <h1 className="font-bold text-3xl mb-2">Buat akunmu</h1>
@@ -29,7 +29,7 @@ const Signup = () => {
                 placeholder="Kata sandi"
               />
               <p className="text-center text-xs pt-8">
-                Dengan membuat akun kamu menyetujui <a className="text-orange-600">Syarat & Ketentuan</a> dan <a className="text-orange-600">Kebijakan Privasi</a> kami
+                Dengan membuat akun kamu menyetujui <a href="#" className="text-orange-600">Syarat & Ketentuan</a> dan <a href="#" className="text-orange-600">Kebijakan Privasi</a> kami
               </p>
               <div className="flex m-auto pt-4">
                 <button className=" text-center bg-orange-600 w-[300px] text-gray-100 py-3 my-4 rounded-xl">

@@ -3,9 +3,9 @@ import CoachCard from "./CoachCard";
 
 const CoachSection = () => {
   return (
-    <div className="h-[500px] bg-orange-100">
+    <div className="h-[500px] bg-gradient-to-r from-orange-100 to-orange-300/80">
       <div className="pt-8 px-20">
-        <h3 className="text-orange-600 text-md font-bold ">Coach</h3>
+        <h3 className="text-orange-600 text-lg font-bold ">Coach</h3>
         <h2 className="text-2xl font-bold">Latih dirimu bareng coach keren ini!</h2>
       </div>
       <div className="my-4 flex">

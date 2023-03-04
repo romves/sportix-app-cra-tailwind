@@ -12,8 +12,9 @@ const DiscountCard = () => {
         <div className="">
           <h3 className="font-bold text-lg">Viva futsal - Lowokwaru</h3>
           <p className="font-bold text-xs">Rp60000/jam</p>
+          <p className="text-[10px] line-through text-gray-500">Rp80000/jam</p>
         </div>
-        <button className="bg-orange-600 text-white rounded-full text-xs px-3 py-1 h-6 end">
+        <button className="bg-orange-600 text-white text-center rounded-full text-xs px-3 py-1 h-6 end">
           Know more
         </button>
       </div>
