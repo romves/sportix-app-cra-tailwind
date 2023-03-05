@@ -1,5 +1,5 @@
 import React from "react";
-import DiscountCard from "./DiscountCard";
+import DiscountCard from "../components/DiscountCard";
 
 const DiscountSection = () => {
   return (

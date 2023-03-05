@@ -1,5 +1,5 @@
 import React from "react";
-import PartnerCard from "./PartnerCard";
+import PartnerCard from "../components/PartnerCard";
 
 const PartnerSection = () => {
   return (

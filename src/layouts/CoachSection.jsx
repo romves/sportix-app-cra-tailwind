@@ -1,5 +1,5 @@
 import React from "react";
-import CoachCard from "./CoachCard";
+import CoachCard from '../components/CoachCard'
 
 const CoachSection = () => {
   return (

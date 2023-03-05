@@ -8,4 +8,36 @@
     * {
       font-family: Kanit, system-ui, sans-serif;
     }
+
+    h1 {
+      @apply text-[46px] font-semibold;
+    }
+
+    h2, .h2 {
+      @apply text-3xl font-semibold;
+    }
+
+    h3, .h3{
+      @apply text-3xl font-normal
+    }
+
+    h4, .body-text {
+      @apply text-base font-normal
+    }
+
+    h5, .body-text__sm{
+      @apply text-sm
+    }
+
+    p, .text-tiny{
+      @apply text-[10px]
+    }
+
+    .input-area{
+      @apply p-3 my-1 rounded border border-black text-black
+    }
+
+    .form-button {
+      @apply text-center bg-orange-600 w-[300px] text-gray-100 py-3 my-4 rounded-xl
+    }
   }
