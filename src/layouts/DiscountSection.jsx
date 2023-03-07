@@ -8,10 +8,12 @@ const DiscountSection = () => {
         <h3 className="text-orange-600 text-lg font-bold ">Hari ini</h3>
         <h2 className="text-2xl font-bold">Lapangan ini lagi adain diskon!</h2>
       </div>
-      <div className="my-4 flex">
-        <DiscountCard />
-        <DiscountCard />
+        <div className="my-4 flex">
+          <DiscountCard />
+          <DiscountCard />
 
+          
+        
       </div>
       <div className="text-end px-8">
         <p className="font-bold text-sm">Geser untuk lihat lebih banyak</p>

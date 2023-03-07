@@ -1,10 +1,9 @@
-import React from 'react'
-import CoachSection from '../layouts/CoachSection'
-import Discount from '../layouts/DiscountSection'
-import Footer from '../layouts/Footer'
-import Hero from '../layouts/Hero'
-import PartnerSection from '../layouts/PartnerSection'
-import Navbar from '../layouts/Navbar'
+import React from "react";
+import CoachSection from "../layouts/CoachSection";
+import Discount from "../layouts/DiscountSection";
+import Hero from "../layouts/Hero";
+import PartnerSection from "../layouts/PartnerSection";
+import Utama from "../layouts/Utama";
 
 const Home = () => {
   return (
@@ -15,14 +14,14 @@ const Home = () => {
       <h4 >Body text</h4>
       <h5 >Body text sm</h5>
       <p className='text-tiny'>Text tiny</p> */}
-      <Navbar />
-      <Hero />
-      <Discount />
-      <CoachSection />
-      <PartnerSection />
-      <Footer />
+      <Utama>
+        <Hero />
+        <Discount />
+        <CoachSection />
+        <PartnerSection />
+      </Utama>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

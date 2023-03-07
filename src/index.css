@@ -37,7 +37,4 @@
       @apply p-3 my-1 rounded border border-black text-black
     }
 
-    .form-button {
-      @apply text-center bg-orange-600 w-[300px] text-gray-100 py-3 my-4 rounded-xl
-    }
   }
