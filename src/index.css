@@ -32,9 +32,4 @@
     p, .text-tiny{
       @apply text-[10px]
     }
-
-    .input-area{
-      @apply p-3 my-1 rounded border border-black text-black
-    }
-
   }
