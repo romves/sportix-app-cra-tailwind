@@ -20,6 +20,7 @@ module.exports = {
       'neutral-300': '#737373',
       'neutral-400': '#525252',
       'neutral-500': '#262626',
+      'half-black': '0deg 0% 0% 0.41',
       'black': '#171717',
     },
 

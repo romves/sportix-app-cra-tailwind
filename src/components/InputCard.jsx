@@ -3,8 +3,8 @@ import React from "react";
 const InputCard = ({ children }) => {
   return (
     <>
-      <div className="flex items justify-center w-[400px] h-[600px] mr-12 bg-white rounded-2xl shadow-lg">
-        <div className="w-[350px]">
+      <div className="flex items justify-center w-[500px] h-[600px] mr-12 bg-white rounded-2xl shadow-lg">
+        <div className="w-[400px] py-6">
           {children}
           {/*  <p className="text-orange-700 font-bold text-3xl">
               Welcome back warrior!

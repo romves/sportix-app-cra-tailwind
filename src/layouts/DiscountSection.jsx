@@ -3,13 +3,13 @@ import DiscountCard from "../components/DiscountCard";
 
 const DiscountSection = () => {
   return (
-    <div className="h-[500px] bg-primary-200 to-white/">
-      <div className="pt-4 px-20">
-        <h1 className="text-primary-500">Hari ini</h1>
-        <h2 className="h2">Ada diskon di lapangan ini!</h2>
-        <p>Pesan sekarang dan nikmati diskonnya</p>
+    <div className="h-[700px] bg-primary-200 to-white/">
+      <div className="pt-8 px-20">
+        <h1 className="text-primary-500 h1-med leading-10">Hari ini</h1>
+        <h2 className="h3-med leading-">Ada diskon di lapangan ini!</h2>
+        <p className="beranda-lg-transp">Pesan sekarang dan nikmati diskonnya</p>
       </div>
-        <div className="my-4 flex">
+        <div className="my-4 ml-16 flex">
           <DiscountCard />
           <DiscountCard />
       </div>

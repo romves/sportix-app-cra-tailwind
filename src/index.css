@@ -2,34 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Lato&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&family=Lato&display=swap");
 
 @layer base {
-    * {
-      font-family: Kanit, system-ui, sans-serif;
-    }
-
-    h1, .h1 {
-      @apply text-[46px] font-semibold;
-    }
-
-    h2, .h2 {
-      @apply text-[32px] font-medium;
-    }
-
-    h3, .h3{
-      @apply text-3xl font-normal
-    }
-
-    .body-text {
-      @apply text-base font-normal
-    }
-
-    .body-text__sm{
-      @apply text-sm
-    }
-
-    .text-tiny{
-      @apply text-[10px]
-    }
+  * {
+    font-family: Kanit, system-ui, sans-serif;
   }
+
+  .h1-semi {
+    @apply text-[46px] font-semibold;
+  }
+  .h1-med {
+    @apply text-[46px] font-medium;
+  }
+  .h1-nor {
+    @apply text-[46px] font-normal;
+  }
+
+  .h3-med {
+    @apply text-[32px] font-medium;
+  }
+  .h3-nor {
+    @apply text-[32px] font-normal;
+  }
+
+  .h4-med {
+    @apply text-[24px] font-medium;
+  }
+  .h4-nor {
+    @apply text-[24px] font-normal;
+  }
+
+  .h2-med{
+    @apply text-[30px] font-medium;
+  }
+  .h2-nor{
+    @apply text-[30px] font-medium;
+  }
+
+  .body-text-med {
+    @apply text-[16px] font-medium;
+  }
+  .body-text-nor {
+    @apply text-[16px] font-normal;
+  }
+  .body-text-nor-transp {
+    @apply text-[16px] font-normal text-neutral-400;
+  }
+
+  .beranda-lg-med {
+    @apply text-[20px] font-medium;
+  }
+  .beranda-lg-norm {
+    @apply text-[20px] font-normal;
+  }
+  .beranda-lg-transp {
+    @apply text-[20px] font-normal text-half-black;
+    ;
+  }
+
+  .beranda-md-med {
+    @apply text-[16px] font-medium;
+  }
+  .beranda-md-norm {
+    @apply text-[16px] font-normal;
+  }
+}

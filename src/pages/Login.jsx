@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import Dropdown from "../components/Dropdown";
 import InputCard from "../components/InputCard";
 import InputField from "../components/InputField";
+import loginbg from "../assets/loginbg.png"
 
 const Login = () => {
   const handleFormSubmit = (e) => {
@@ -11,10 +12,11 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-end w-full h-screen bg-primary-50 px-4 py-20 z-50">
+    <div className="flex items-center w-full h-screen bg-primary-50 pr-4 z-50">
+      <img src={loginbg} alt="" className="h-full w-[960px] object-cover rounded-r-2xl mr-20" />
       <InputCard>
-        <h1>Masuk</h1>
-        <p className="mb-16">Selamat datang kembali warrior! <br/> Lakukan pemesanan dan dapatkan poin!</p>
+        <h1 className="h1-semi">Masuk</h1>
+        <p className="mb-16 body-text">Selamat datang kembali warrior! <br/> Lakukan pemesanan dan dapatkan poin!</p>
         <form onSubmit={handleFormSubmit} className="w-full flex flex-col">
           <InputField
             type="email"
