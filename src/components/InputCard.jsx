@@ -1,13 +1,12 @@
 import React from "react";
 
-const InputCard = ({children}) => {
+const InputCard = ({ children }) => {
   return (
     <>
-      <div className="flex justify-end w-full h-screen bg-amber-100 px-4 py-20 z-50">
-        <div className="flex items-center justify-center w-[400px] h-[600px] mr-12 bg-white rounded-2xl shadow-lg">
-          <div className="w-[350px]">
-            {children}
-           {/*  <p className="text-orange-700 font-bold text-3xl">
+      <div className="flex items justify-center w-[400px] h-[600px] mr-12 bg-white rounded-2xl shadow-lg">
+        <div className="w-[350px]">
+          {children}
+          {/*  <p className="text-orange-700 font-bold text-3xl">
               Welcome back warrior!
             </p>
             <h2 className=" mb-16">Masuk</h2>
@@ -37,7 +36,6 @@ const InputCard = ({children}) => {
                 </p>
               </div>
             </form> */}
-          </div>
         </div>
       </div>
     </>

@@ -3,10 +3,10 @@ import PartnerCard from "../components/PartnerCard";
 
 const PartnerSection = () => {
   return (
-    <div className="h-[500px] bg-gradient-to-l from-orange-500/50">
-      <div className="pt-8 px-20">
-        <h3 className="text-orange-600 text-lg font-bold ">Partner</h3>
-        <h2 className="text-3xl font-bold">Mereka lagi cari teman buat olahraga nih!</h2>
+    <div className="h-[500px] bg-primary-200">
+      <div className="pt-4 px-20">
+        <h1 className="text-primary-500">Partner</h1>
+        <h2 >Mereka lagi cari teman buat olahraga nih!</h2>
         <p className="text-lg">Cari teman dan berolahraga bersama mereka</p>
       </div>
       <div className="my-4 flex">

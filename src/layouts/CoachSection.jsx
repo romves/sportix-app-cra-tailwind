@@ -3,10 +3,11 @@ import CoachCard from '../components/CoachCard'
 
 const CoachSection = () => {
   return (
-    <div className="h-[500px] bg-gradient-to-r from-orange-100 to-orange-300/80">
-      <div className="pt-8 px-20">
-        <h3 className="text-orange-600 text-lg font-bold ">Coach</h3>
-        <h2 className="text-2xl font-bold">Latih dirimu bareng coach keren ini!</h2>
+    <div className="h-[768px] bg-primary-50 to-orange-300/80">
+      <div className="pt-4 px-20">
+        <h1 className="text-primary-500">Coach</h1>
+        <h2>Latih dirimu bareng coach keren ini!</h2>
+        <p>Yuk, reservasi dengan mudah dan aman disini</p>
       </div>
       <div className="my-4 flex">
         <CoachCard />
