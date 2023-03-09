@@ -1,5 +1,4 @@
 import React from 'react'
-import Button from '../components/NavButton'
 import NavButton from "../components/NavButton"
 import LandingPage from '../assets/LandingPage.png'
 

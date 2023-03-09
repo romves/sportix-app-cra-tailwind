@@ -37,11 +37,11 @@ const Signup = () => {
           />
           <p className="body-text__small pt-8">
             Dengan membuat akun kamu menyetujui{" "}
-            <a href="#" className="text-primary-600">
+            <a href="google.com" className="text-primary-600">
               Syarat & Ketentuan
             </a>{" "}
             dan{" "}
-            <a href="#" className="text-primary-600">
+            <a href="google.com" className="text-primary-600">
               Kebijakan Privasi
             </a>{" "}
             kami

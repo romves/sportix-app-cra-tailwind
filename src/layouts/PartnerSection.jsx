@@ -14,9 +14,6 @@ const PartnerSection = () => {
         <PartnerCard />
         <PartnerCard />
       </div>
-      <div className="text-end px-8">
-        <p className="font-bold text-sm">Geser untuk lihat lebih banyak</p>
-      </div>
     </div>
   );
 };
