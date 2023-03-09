@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Button = ({ children, rute, label }) => {
+const NavButton = ({ children, rute, label }) => {
   return (
     <div className="flex flex-col items-center text-white">
       <Link
@@ -15,4 +15,4 @@ const Button = ({ children, rute, label }) => {
   );
 };
 
-export default Button;
+export default NavButton;

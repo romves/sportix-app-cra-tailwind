@@ -6,6 +6,7 @@ const Utama = ({children}) => {
   return (
     <div>
         <Navbar />
+        
         {children}
         <Footer />
     </div>
