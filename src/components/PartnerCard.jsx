@@ -6,7 +6,7 @@ import imageteman from "../assets/imageteman.png"
 
 const PartnerCard = () => {
   return (
-    <div className=" drop-shadow-lg rounded-lg bg-white w-[378px] mx-4">
+    <div className=" drop-shadow-lg rounded-lg bg-white w-[380px] min-w-[380px] mx-4">
       <img
         className="rounded-t-lg w-[380px] h-[265px] object-cover"
         src={imageteman}

@@ -9,7 +9,13 @@ const DiscountSection = () => {
         <h2 className="h3-med leading-">Ada diskon di lapangan ini!</h2>
         <p className="beranda-lg-transp">Pesan sekarang dan nikmati diskonnya</p>
       </div>
-        <div className="my-4 mx-16 flex">
+        <div className="my-4 mx-16 flex overflow-x-scroll">
+          <DiscountCard />
+          <DiscountCard />
+          <DiscountCard />
+          <DiscountCard />
+          <DiscountCard />
+          <DiscountCard />
           <DiscountCard />
           <DiscountCard />
           <DiscountCard />

@@ -5,11 +5,11 @@ import imagelap from "../assets/imagelap.png"
 
 const DiscountCard = () => {
   return (
-    <div className=" drop-shadow-lg rounded-lg bg-white w-[378px] mx-4">
+    <div className=" drop-shadow-lg rounded-lg bg-white min-w-[380px] w-[380px] mx-4">
       <img
         className="rounded-t-lg w-[380px] h-[265px] object-cover"
         src={imagelap}
-        alt=""
+        alt="Foto Lapangan"
       />
       <div className="flex flex-col justify-between h-[200px] px-5 ">
         <div className="h-[100px]">

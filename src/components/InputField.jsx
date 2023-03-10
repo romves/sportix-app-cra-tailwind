@@ -3,6 +3,7 @@ import React from "react";
 const InputField = ({ type, name, placeholder, onChange }) => {
   return (
     <input
+      required
       type={type}
       name={name}
       placeholder={placeholder}

@@ -17,7 +17,6 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     axios
       .post("https://ahmadsultan.aenzt.tech/api/login", {
         email: email,
@@ -25,8 +24,8 @@ const Login = () => {
       })
       .then((response) => {
         console.log(response);
-        window.localStorage.setItem('token', response.data.token)
-        navigate('/')
+        window.localStorage.setItem("token", response.data.token);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -39,40 +38,44 @@ const Login = () => {
       <img
         src={loginbg}
         alt=""
-        className="h-screen object-cover rounded-r-2xl mr-20"
+        className="w-11/12 h-screen object-cover rounded-r-2xl"
       />
-      <InputCard>
-        <h1 className="h1-semi">Masuk</h1>
-        <p className="mb-16 body-text">
-          Selamat datang kembali warrior! <br /> Lakukan pemesanan dan dapatkan
-          poin!
-        </p>
-        <p>{error.message}</p>
-        <form onSubmit={handleLogin} className="w-full flex flex-col">
-          <InputField
-            type="email"
-            name="email"
-            placeholder="Nomor ponsel atau email"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <InputField
-            type="password"
-            name="password"
-            placeholder="Kata sandi"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <p className="text-end text-xs text-primary-500">Lupa kata sandi?</p>
-          <div className="flex flex-col items-center pt-[85px] text-white">
-            <Button>Masuk</Button>
-            <div className="flex m-auto p-1 border border-black rounded-lg">
-              <p className="text-primary-500 text-center body-md-norm">
-                <span className="text-black">Belum punya akun?</span>{" "}
-                <Link to="/signup">Daftar</Link>
-              </p>
+      <div className="flex h-screen w-7/12 mx-10 items-center justify-end text-center">
+        <InputCard>
+          <h1 className="h1-semi">Masuk</h1>
+          <p className="mb-16 body-text">
+            Selamat datang kembali warrior! <br /> Lakukan pemesanan dan
+            dapatkan poin!
+          </p>
+          <p>{error.message}</p>
+          <form onSubmit={handleLogin} className="w-full flex flex-col">
+            <InputField
+              type="email"
+              name="email"
+              placeholder="Nomor ponsel atau email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <InputField
+              type="password"
+              name="password"
+              placeholder="Kata sandi"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <p className="text-end text-xs text-primary-500">
+              Lupa kata sandi?
+            </p>
+            <div className="flex flex-col items-center pt-[85px] text-white">
+              <Button>Masuk</Button>
+              <div className="flex m-auto p-1 border border-black rounded-lg">
+                <p className="text-primary-500 text-center body-md-norm">
+                  <span className="text-black">Belum punya akun?</span>{" "}
+                  <Link to="/signup">Daftar</Link>
+                </p>
+              </div>
             </div>
-          </div>
-        </form>
-      </InputCard>
+          </form>
+        </InputCard>
+      </div>
     </div>
   );
 };
