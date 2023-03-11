@@ -30,7 +30,7 @@ const SearchSection = () => {
   return (
     <>
       {isSearched ? (
-        <div className="w-full ">
+        <div className="w-full pt-[75px]">
           <div className="bg-primary-200 px-20 py-2 mb-2">
             <Link to='/' className="beranda-lg-transp">Beranda</Link>
             {" > "}
