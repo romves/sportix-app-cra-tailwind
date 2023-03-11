@@ -18,7 +18,7 @@ const DiscountCard = () => {
           <p className="body-text-nor-transp line-through">Rp80000/jam</p>
         </div>
         <div className="flex flex-col my-3 items-end text-end justify-end">
-          <div className="flex text-primary-400">
+          <div className="flex text-primary-400 my-2">
             <ImStarFull />
             <ImStarFull />
             <ImStarFull />

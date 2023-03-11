@@ -64,11 +64,11 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex justify-between items-center w-full h-screen bg-primary-50 pr-4 z-50">
+    <div className="flex justify-between items-center w-full h-full bg-primary-50 pr-4 z-50">
       <img
         src={loginbg}
         alt=""
-        className="w-11-12 h-screen object-cover rounded-r-2xl"
+        className=" h-screen object-cover rounded-r-2xl"
       />
       <div className="flex h-screen w-7/12 mx-10 items-center justify-end text-center">
         <InputCard className="w-[500px] h-[600px]">

@@ -38,7 +38,7 @@ const Login = () => {
       <img
         src={loginbg}
         alt=""
-        className="w-11/12 h-screen object-cover rounded-r-2xl"
+        className=" h-screen object-cover rounded-r-2xl"
       />
       <div className="flex h-screen w-7/12 mx-10 items-center justify-end">
         <InputCard className='w-[500px] h-[600px]'>
@@ -61,7 +61,7 @@ const Login = () => {
               name="password"
               placeholder="Kata sandi"
               onChange={(e) => setPassword(e.target.value)}
-              width="440px"
+              width={"440px"}
             />
             <p className="text-end text-xs text-primary-500">
               Lupa kata sandi?
