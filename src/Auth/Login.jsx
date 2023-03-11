@@ -52,14 +52,14 @@ const Login = () => {
             <InputField
               type="email"
               name="email"
-              placeholder="Email"
+              placeholder="Masukkan email"
               onChange={(e) => setEmail(e.target.value)}
               className='mb-2'
             />
             <InputField
               type="password"
               name="password"
-              placeholder="Kata sandi"
+              placeholder="Masukkan kata sandi"
               onChange={(e) => setPassword(e.target.value)}
               width={"440px"}
             />
