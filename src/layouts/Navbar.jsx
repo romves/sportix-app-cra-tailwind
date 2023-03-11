@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { VscHome } from "react-icons/vsc"
+import { Link, useNavigate } from "react-router-dom";
+import { VscHome } from "react-icons/vsc";
 import { GiShakingHands } from "react-icons/gi";
 import { MdOutlineNotListedLocation } from "react-icons/md";
 import { BiReceipt } from "react-icons/bi";
@@ -10,31 +10,39 @@ import axios from "axios";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const navigate = useNavigate()
   const handleLogout = async () => {
-    console.log(window.localStorage.getItem('token'))
-    axios.post("https://ahmadsultan.aenzt.tech/api/logout", {}, {
-      headers: {
-        Accept:'application/json',
-        Authorization:`Bearer ${window.localStorage.getItem('token')}`
-      }
-    })
-    .then((response) => {
-      console.log(response);
-      window.localStorage.removeItem('token')
+    console.log(window.localStorage.getItem("token"));
+    axios
+      .post(
+        "https://ahmadsultan.aenzt.tech/api/logout",
+        {},
+        {
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        window.localStorage.removeItem("token");
 
-      setTimeout(() => {
-        window.location.reload()
-      }, 1000)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  }
+        setTimeout(() => {
+          window.location.reload();
+          navigate('/')
+        }, 1000);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
-    <div className=" flex justify-between w-full h-[70px] px-16 bg-black text-white z-20">
-      <img src={logo} alt="logo" />
+    <div className="flex justify-between w-full h-[70px] px-16 bg-black text-white z-20">
+      <Link to='/'>
+        <img src={logo} alt="logo" />
+      </Link>
       <div className="flex py-3">
         <ul className="flex end py-4 mr-2 items-center body-text">
           <VscHome />
@@ -56,18 +64,20 @@ const Navbar = () => {
         </ul>
         {window.localStorage.getItem("token") ? (
           <>
-          <div className="flex items-center">
-            <button onClick={() => setIsOpen((prev) => !prev)} className="flex items-center">
-              <BsPerson />
-              <p className="ml-1">Profil</p>
-            </button>
-          </div>
-          {isOpen && 
-            <div className="absolute bg-primary-200 text-primary-400">
-              <button onClick={handleLogout}>
-                logout
+            <div className="flex items-center">
+              <button
+                onClick={() => setIsOpen((prev) => !prev)}
+                className="flex items-center"
+              >
+                <BsPerson />
+                <p className="ml-1">Profil</p>
               </button>
-            </div>}
+              {isOpen && (
+                <div className="absolute mt-16 bg-primary-200 text-primary-400">
+                  <button onClick={handleLogout}>logout</button>
+                </div>
+              )}
+            </div>
           </>
         ) : (
           <div className="flex items-center">

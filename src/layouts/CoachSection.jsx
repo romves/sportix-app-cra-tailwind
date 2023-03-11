@@ -3,10 +3,10 @@ import CoachCard from "../components/CoachCard";
 
 const CoachSection = () => {
   return (
-    <div className="h-[700px] bg-primary-50 ">
+    <div className="h-[700px] bg-primary-100 ">
       <div className="pt-8 px-20">
         <h1 className="text-primary-500 h1-med leading-10">Coach</h1>
-        <h2 className="h3-med leading-">
+        <h2 className="h3-med">
           Latih dirimu bersama coach keren ini!
         </h2>
         <p className="beranda-lg-transp">

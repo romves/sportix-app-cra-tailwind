@@ -12,14 +12,17 @@
   .h1-semi {
     @apply text-[46px] font-semibold;
   }
-  .h1-med {
+  h1, .h1-med {
     @apply text-[46px] font-medium;
   }
   .h1-nor {
     @apply text-[46px] font-normal;
   }
 
-  .h3-med {
+  .h3-bold {
+    @apply text-[32px] font-bold;
+  }
+  h3, .h3-med {
     @apply text-[32px] font-medium;
   }
   .h3-nor {
@@ -47,7 +50,7 @@
     @apply text-[16px] font-normal;
   }
   .body-text-nor-transp {
-    @apply text-[16px] font-normal text-neutral-400;
+    @apply text-[16px] font-normal text-neutral-300;
   }
 
   .beranda-lg-med {
@@ -57,7 +60,7 @@
     @apply text-[20px] font-normal;
   }
   .beranda-lg-transp {
-    @apply text-[20px] font-normal text-half-black;
+    @apply text-[20px] font-normal text-neutral-300;
     ;
   }
 
@@ -82,5 +85,8 @@
     @apply text-[12px] font-normal;
   }
 
+  span {
+    @apply text-primary-600
+  }
 
 }

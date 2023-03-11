@@ -1,32 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
-const Dropdown = ({ children, header }) => {
+const Dropdown = ({ array, setData}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const options = ["Laki-laki", "Perempuan"];
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  
+  const [selectedOption, setSelectedOption] = useState('');
 
   const handleSelectOption = (option) => {
     setSelectedOption(option);
+    setData(option);
+    setIsOpen((prev) => !prev);
   };
 
   return (
-    <div>
+    <div className="py-1">
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex px-[20px] justify-between items-center py-[12px] w-[350px] h-[50px] bg-primary-100 border border-black rounded-lg"
+        className="flex px-[20px] justify-between items-center py-[12px] w-[430px] h-[50px] bg-primary-50 border border-black rounded-lg"
+        type="button"
       >
         {selectedOption}
         {!isOpen ? <BsChevronDown /> : <BsChevronUp />}
       </button>
       {isOpen && (
-        <div className="absolute flex flex-col px-5 items-center justify-between w-[350px] min-h-[50px] mt-[3px] bg-primary-100 border border-black rounded-lg">
-          {options.map((option) => (
+        <div className="absolute flex flex-col px-5 items-center justify-between w-[400px] min-h-[50px] mt-[3px] bg-primary-50 border border-black rounded-lg">
+          {array.map((option) => (
             <button
-              className="flex hover:bg-primary-600 hover:text-white items-center w-[348px] h-[48px] px-5 rounded-md"
+              className="flex hover:bg-primary-200 items-center w-[398px] h-[48px] px-5 rounded-md"
               onClick={(e) => handleSelectOption(option)}
               key={option}
-              value={option}
+              type="button"
             >
               <h4>{option}</h4>
             </button>

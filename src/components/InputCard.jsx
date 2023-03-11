@@ -1,10 +1,10 @@
 import React from "react";
 
-const InputCard = ({ children }) => {
+const InputCard = ({ children, className, width }) => {
   return (
     <>
-      <div className="flex justify-center w-[500px] h-[600px] mx-4 bg-white rounded-2xl shadow-lg">
-        <div className="w-[400px] py-6 mx-8">
+      <div className={`flex justify-center mx-4 bg-white rounded-2xl shadow-lg ${className}`}>
+        <div className={` py-6 mx-8 ${width}`}>
           {children}
         </div>
       </div>

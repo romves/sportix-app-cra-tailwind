@@ -24,8 +24,8 @@ const PartnerCard = () => {
           </p>
         </div>
         <div className="flex my-1 items-end text-end justify-end">
-          <Button type="button" width="170px">
-            <p className="mx-2">Button i</p>
+          <Button type="button" width="190px">
+            <p className="mx-2">Tambahkan teman</p>
             <BsPersonPlus />
           </Button>
         </div>

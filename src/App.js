@@ -5,8 +5,8 @@ import Home from "./pages/Home";
 import Login from "./Auth/Login";
 import NotFound from "./pages/NotFound";
 import Signup from "./Auth/Signup";
-import SewaLapangan from "./pages/SewaLapangan";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
+import SewaLapangan from "./pages/SewaLapangan";
 
 function App() {
   return (
