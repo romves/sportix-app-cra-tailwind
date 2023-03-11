@@ -1,11 +1,11 @@
 import React from 'react'
 import NavButton from "../components/NavButton"
-import LandingPage from '../assets/LandingPage.png'
+import imghero from '../assets/imghero.png'
 
 const Hero = () => {
   return (
     <div className='flex h-[768px] w-full items-center'>
-      <img src={LandingPage} alt="" className='absolute -z-10 w-full h-[768px] object-cover' />
+      <img src={imghero} alt="" className='absolute -z-10 w-full h-[768px] object-cover' />
       <div className='py-10 pr-20 w-[650px] h-[500px] mx-20'>
       <p className='text-primary-400 h4-nor'>Selamat datang!</p>
         <h1 className='text-white h1-semi'>Mau olahraga apa hari ini? </h1>

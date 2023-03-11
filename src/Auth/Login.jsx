@@ -38,7 +38,7 @@ const Login = () => {
       <img
         src={loginbg}
         alt=""
-        className=" h-screen object-cover rounded-r-2xl"
+        className="w-11-12 h-screen object-cover rounded-r-2xl"
       />
       <div className="flex h-screen w-7/12 mx-10 items-center justify-end">
         <InputCard className="w-[500px] min-w-[500px] h-[600px] ">

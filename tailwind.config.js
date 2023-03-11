@@ -14,6 +14,9 @@ module.exports = {
       'primary-800': '#9a3412',
       'primary-900': '#7c2d12',
 
+      'nav-blue': '#0E1D30',
+      'nav-purple': '#4A2340',
+
       'white': '#FAFAFA',
       'neutral-100': '#D4D4D4',
       'neutral-200': '#A3A3A3',

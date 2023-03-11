@@ -10,7 +10,7 @@ import axios from "axios";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleLogout = async () => {
     console.log(window.localStorage.getItem("token"));
     axios
@@ -30,7 +30,7 @@ const Navbar = () => {
 
         setTimeout(() => {
           window.location.reload();
-          navigate('/')
+          navigate("/");
         }, 1000);
       })
       .catch((error) => {
@@ -39,8 +39,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="fixed flex justify-between w-full h-[75px] pr-16 pl-8 bg-black text-white z-20">
-      <Link to='/'>
+    <div className="fixed flex justify-between w-full h-[75px] pr-16 pl-8 bg-nav-blue text-white z-20">
+      <Link to="/">
         <img src={logo} alt="logo" />
       </Link>
       <div className="flex py-3">
@@ -70,14 +70,23 @@ const Navbar = () => {
                 className="flex items-center"
               >
                 <BsPerson />
-                <p className="ml-2 mr-4">Profil</p>
+                <p className="ml-1 mr-4">Profil</p>
               </button>
-              {isOpen && (
-                <div className="absolute mt-16 bg-primary-200 text-primary-400">
-                  <button onClick={handleLogout}>logout</button>
-                </div>
-              )}
             </div>
+            {isOpen && (
+              <div className="absolute flex w-[600px] h-[200px] justify-end -z-50">
+                <div className="absolute flex flex-col h-[100px] w-[150px] bg-nav-blue text-white mt-16  rounded-xl">
+                  <div className="flex h-[75px] text-center justify-center border-b-2 items-center ">
+                    <BsPerson className="mr-1"/>
+                    <button className="">Profil</button>
+                  </div>
+                  <button onClick={handleLogout} className="h-[75px]">
+                    {" "}
+                    Keluar
+                  </button>
+                </div>
+              </div>
+            )}
           </>
         ) : (
           <div className="flex items-center">
