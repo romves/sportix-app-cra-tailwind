@@ -79,10 +79,11 @@ const Signup = () => {
               mencari coach
             </p>
           </div>
+          {/* <div className="absolute w-[400px]">{error.message}</div> */}
 
-          <form onSubmit={handleSignUp} className="w-full flex flex-col">
+          <form onSubmit={handleSignUp} className="w-full flex flex-col ">
             {nextPG ? (
-              <div className="flex flex-col items-center text-center justify-center">
+              <div className="flex flex-col items-center text-center justify-center mt-8">
                 <div className="flex py-1">
                   <DropdownRegister
                     width={"210"}
@@ -113,8 +114,8 @@ const Signup = () => {
                     <span>Kebijakan Privasi</span> kami
                   </p>
                 </div>
-                <div className="flex m-auto text-white">
-                  <Button type="submit" onClick={handleSignUp} className="my-6">
+                <div className="flex m-auto text-white mt-1">
+                  <Button type="submit" onClick={handleSignUp} className="my-4">
                     Daftar
                   </Button>
                 </div>

@@ -12,7 +12,7 @@ const Hero = () => {
         <h4 className='text-white h4-nor my-4'>Sewa lapangan, cari teman dan berlatih bersama personal trainer di sini</h4>
         <div className='flex max-w-[300px] '>
           <NavButton rute='/sewa' label="Lapangan"/>
-          <NavButton rute='/sewa' label="Teman"/>
+          <NavButton rute='/teman' label="Teman"/>
           <NavButton rute='/sewa' label="Coach"/>
         </div> 
       </div>

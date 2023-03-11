@@ -39,7 +39,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex justify-between w-full h-[70px] px-16 bg-black text-white z-20">
+    <div className="fixed flex justify-between w-full h-[75px] pr-16 pl-8 bg-black text-white z-20">
       <Link to='/'>
         <img src={logo} alt="logo" />
       </Link>
@@ -70,7 +70,7 @@ const Navbar = () => {
                 className="flex items-center"
               >
                 <BsPerson />
-                <p className="ml-1">Profil</p>
+                <p className="ml-2 mr-4">Profil</p>
               </button>
               {isOpen && (
                 <div className="absolute mt-16 bg-primary-200 text-primary-400">

@@ -31,12 +31,12 @@ const SearchSection = () => {
     <>
       {isSearched ? (
         <div className="w-full ">
-          <div className="bg-primary-200 px-10 py-2 mb-2">
+          <div className="bg-primary-200 px-20 py-2 mb-2">
             <Link to='/' className="beranda-lg-transp">Beranda</Link>
             {" > "}
             <Link className="beranda-lg-norm">Cari Lapangan</Link>
           </div>
-          <div className="flex items-end justify-between mx-10 mb-2">
+          <div className="flex items-end justify-between mx-20 mb-2">
             <div className="flex items-center">
               <TbSoccerField className="text-[40px] mr-2"/>
               <div className="">
@@ -48,11 +48,11 @@ const SearchSection = () => {
             </div>
             <Button className="mb-2" onClick={handleSearch}>Ganti</Button>
           </div>
-          <div className="flex text-end h-[40px] justify-end items-center px-10 mt-8">
+          <div className="flex text-end h-[40px] justify-end items-center px-20 mt-8">
             <LongFilterButton />
             <p>Filter</p>
           </div>
-          <div className="px-10 py-2 ">
+          <div className="px-20 py-2 ">
             <p>Hasil pencarian:</p>
             <p>{"12"} hasil untuk lapangan futsal di kota Malang</p>
             <div className="flex flex-col justify-center my-4">

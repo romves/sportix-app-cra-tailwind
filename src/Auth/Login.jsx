@@ -66,7 +66,7 @@ const Login = () => {
               <p className="text-end text-xs text-primary-500">
                 Lupa kata sandi?
               </p>
-              <div className="flex flex-col items-center pt-[85px] text-white">
+              <div className="flex flex-col items-center pt-[85px] text-white mt-10">
                 <Button className="my-4">Masuk</Button>
                 <div className="flex m-auto p-1 border border-black rounded-lg">
                   <p className="text-primary-500 text-center body-md-norm">

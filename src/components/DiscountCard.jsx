@@ -5,7 +5,7 @@ import imagelap from "../assets/imagelap.png"
 
 const DiscountCard = () => {
   return (
-    <div className=" drop-shadow-lg rounded-lg bg-white min-w-[380px] w-[380px] mx-4">
+    <div className=" drop-shadow-lg rounded-lg bg-white min-w-[380px] w-[380px] mr-8">
       <img
         className="rounded-t-lg w-[380px] h-[265px] object-cover"
         src={imagelap}

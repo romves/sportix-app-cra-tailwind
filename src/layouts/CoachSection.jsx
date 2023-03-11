@@ -13,7 +13,7 @@ const CoachSection = () => {
           Yuk reservasi dengan mudah dan aman disini
         </p>
       </div>
-      <div className=" relative overflow-x-scroll items-center my-4 mx-16 flex">
+      <div className=" relative overflow-x-scroll items-center my-4 mx-20 flex">
           <CoachCard />
           <CoachCard />
           <CoachCard />

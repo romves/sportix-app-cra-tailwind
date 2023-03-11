@@ -9,7 +9,7 @@ const PartnerSection = () => {
         <h3 className="h3-med">Mereka lagi cari teman buat olahraga nih!</h3>
         <p className="beranda-lg-norm">Cari teman dan berolahraga bersama mereka</p>
       </div>
-      <div className="my-4 mx-16 overflow-x-scroll flex">
+      <div className="my-4 mx-20 overflow-x-scroll flex">
         <PartnerCard />
         <PartnerCard />
         <PartnerCard />

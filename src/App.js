@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound";
 import Signup from "./Auth/Signup";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 import SewaLapangan from "./pages/SewaLapangan";
+import CariTeman from "./pages/CariTeman"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/sewa" element={<SewaLapangan />} />
+          <Route path="/teman" element={<CariTeman />}/>
           <Route element={<ProtectedRoutes />}>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />

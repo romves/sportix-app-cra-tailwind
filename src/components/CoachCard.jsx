@@ -5,7 +5,7 @@ import imagecoch from "../assets/imagecoch.png"
 
 const CoachCard = () => {
   return (
-    <div className="drop-shadow-lg rounded-lg bg-white min-w-[380px] w-[378px] mx-4">
+    <div className="drop-shadow-lg rounded-lg bg-white min-w-[380px] w-[378px] mr-8">
       <img
         className="rounded-t-lg w-[380px] h-[288px] object-cover"
         src={imagecoch}
