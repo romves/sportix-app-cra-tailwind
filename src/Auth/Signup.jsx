@@ -44,22 +44,21 @@ const Signup = () => {
         .then((response) => {
           console.log(response);
           window.localStorage.setItem("token", response.data.token);
+          setNama("");
+          setEmail("");
+          setNoTelp("");
+          setPassword("");
+          setConfPassword("");
+          setPekerjaan("");
+          setUmur("");
+          setJenisKelamin(0);
+          setSetuju();
           navigate("/");
         })
         .catch((error) => {
           console.log(error);
           setError(error.response.data);
         });
-
-      setNama("");
-      setEmail("");
-      setNoTelp("");
-      setPassword("");
-      setConfPassword("");
-      setPekerjaan("");
-      setUmur("");
-      setJenisKelamin(0);
-      setSetuju();
     }
   };
 
@@ -90,14 +89,14 @@ const Signup = () => {
                     setJenisKelamin={setJenisKelamin}
                   />
                   <InputField
-                    type="text"
+                    type="number"
                     placeholder="Umur"
                     width={"210px"}
                     value={umur}
                     onChange={(e) => setUmur(e.target.value)}
                   />
                 </div>
-                <Dropdown setData={setPekerjaan} array={arrPekerjaan}/>
+                <Dropdown setData={setPekerjaan} array={arrPekerjaan} />
                 <div className="flex justify-center mt-1">
                   <button type="button" onClick={() => setNextPG(false)}>
                     <VscCircle />
@@ -172,7 +171,11 @@ const Signup = () => {
                   </button>
                 </div>
                 <div className="flex m-auto text-white">
-                  <Button type="button" onClick={() => setNextPG(true)} className="my-4">
+                  <Button
+                    type="button"
+                    onClick={() => setNextPG(true)}
+                    className="my-4"
+                  >
                     Daftar
                   </Button>
                 </div>

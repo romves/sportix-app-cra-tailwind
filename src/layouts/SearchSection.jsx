@@ -9,6 +9,7 @@ import LongFilterButton from "../components/LongFilterButton";
 import { BsArrowRight } from "react-icons/bs";
 import { TbSoccerField } from "react-icons/tb";
 import Button from "../components/Button";
+import TabSelect from "../components/TabSelect";
 
 const SearchSection = () => {
   const [kota, setKota] = useState("");
@@ -31,11 +32,7 @@ const SearchSection = () => {
     <>
       {isSearched ? (
         <div className="w-full pt-[75px]">
-          <div className="bg-primary-200 px-20 py-2 mb-2">
-            <Link to='/' className="beranda-lg-transp">Beranda</Link>
-            {" > "}
-            <Link className="beranda-lg-norm">Cari Lapangan</Link>
-          </div>
+          <TabSelect />
           <div className="flex items-end justify-between mx-20 mb-2">
             <div className="flex items-center">
               <TbSoccerField className="text-[40px] mr-2"/>
