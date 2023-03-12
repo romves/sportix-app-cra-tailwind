@@ -1,10 +1,16 @@
 import React from "react";
 import { ImStarFull } from "react-icons/im";
 import { SlLocationPin } from "react-icons/sl";
+import { useNavigate } from "react-router-dom";
 import lapcard from "../assets/lapcard.png";
 import Button from "./Button";
 
 const LapanganCard = () => {
+  const navigate = useNavigate();
+
+  const handleGetDesc = () => {
+    navigate('/sewa/desc')
+  }
   return (
     <div className="flex w-[1150px] h-[240px] rounded-xl mb-4 shadow-md">
       <img src={lapcard} alt="" className="object-cover rounded-l-xl" />
@@ -32,7 +38,7 @@ const LapanganCard = () => {
           </div>
           <div className="flex flex-col justify-center text-center">
             <p className="text-primary-500">Rp70000/jam/sesi</p>
-            <Button>Sewa</Button>
+            <Button onClick={handleGetDesc}>Sewa</Button>
           </div>
         </div>
       </div>

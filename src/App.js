@@ -19,7 +19,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
           <Route path="/sewa" element={<SewaLapangan />} />
           <Route path="/teman" element={<CariTeman />}/>
-          <Route path="/desc" element={<DescPage />}/>
+          <Route path="/sewa/desc" element={<DescPage />}/>
           <Route element={<ProtectedRoutes />}>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />

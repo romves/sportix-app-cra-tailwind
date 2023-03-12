@@ -24,7 +24,6 @@ const LoggedSection = () => {
           <VoucherCard />  
           <VoucherCard />  
           <VoucherCard />  
-             
         </div>
       </div>
       <div className="text-end px-8"></div>
