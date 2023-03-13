@@ -78,7 +78,7 @@ const Navbar = () => {
                 <div className="absolute flex flex-col h-[100px] w-[150px] bg-nav-blue text-white mt-16  rounded-xl">
                   <div className="flex h-[75px] text-center justify-center border-b-2 items-center ">
                     <BsPerson className="mr-1"/>
-                    <button className="">Profil</button>
+                    <button onClick={() => navigate('/profile')} className="">Profil</button>
                   </div>
                   <button onClick={handleLogout} className="h-[75px]">
                     {" "}

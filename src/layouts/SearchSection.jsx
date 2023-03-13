@@ -11,7 +11,7 @@ import { TbSoccerField } from "react-icons/tb";
 import Button from "../components/Button";
 import TabSelect from "../components/TabSelect";
 
-const SearchSection = () => {
+const SearchSection = ({head, desc, bgColor}) => {
   const [kota, setKota] = useState("");
   const [olahraga, setOlahraga] = useState("");
   const [isSearched, setIsSearched] = useState(false);
@@ -73,13 +73,15 @@ const SearchSection = () => {
           />
           <div className="flex justify-end w-full h-screen ">
             <div className="flex w-6/12 h-screen items-center justify-center pr-16">
-              <InputCard className="absolute w-[580px] h-[420px] ">
+              <InputCard className="absolute w-[550px] h-[420px] "  bgColor={bgColor}>
                 <SearchComp
                   handleSearch={handleSearch}
                   setKota={setKota}
                   setOlahraga={setOlahraga}
                   listKota={listKota}
                   listOlahraga={listOlahraga}
+                  head={head}
+                  desc={desc}
                 />
               </InputCard>
             </div>

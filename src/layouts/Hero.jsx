@@ -13,7 +13,7 @@ const Hero = () => {
         <div className='flex max-w-[300px] '>
           <NavButton rute='/sewa' label="Lapangan"/>
           <NavButton rute='/teman' label="Teman"/>
-          <NavButton rute='/sewa' label="Coach"/>
+          <NavButton rute='/coach' label="Coach"/>
         </div> 
       </div>
     </div>

@@ -4,13 +4,13 @@ import { SlLocationPin } from "react-icons/sl";
 import Button from "./Button";
 import Dropdown from "./Dropdown";
 
-const SearchComp = ({setKota, setOlahraga, listKota, listOlahraga, handleSearch}) => {
+const SearchComp = ({setKota, setOlahraga, listKota, listOlahraga, handleSearch, head, desc}) => {
   return (
     <div>
       <form onSubmit={handleSearch}>
         <div className="flex flex-col">
-          <h1 className="h1-semi">Cari Lapangan</h1>
-          <p>Isi dengan kota dan jenis olahraga yang sesuai minat kamu</p>
+          <h1 className="h1-semi">{head}</h1>
+          <p>{desc}</p>
           <div className="my-2">
             <p className="pl-10">Pilih kota</p>
             <div className="flex items-center justify-between">
@@ -27,7 +27,7 @@ const SearchComp = ({setKota, setOlahraga, listKota, listOlahraga, handleSearch}
               <Dropdown array={listOlahraga} setData={setOlahraga} />
             </div>
           </div>
-          <div className="flex justify-center mt-4">
+          <div className="flex justify-center mt-10">
             <Button type="submit">CARI</Button>
           </div>
         </div>

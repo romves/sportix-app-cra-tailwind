@@ -9,7 +9,7 @@ const SewaLapangan = () => {
   return (
     <div className=''>
       <Utama>
-         <SearchSection />
+         <SearchSection head={'Cari Lapangan'} desc={'Isi dengan kota dan jenis olahraga yang sesuai minat kamu'}/>
       </Utama> 
     </div>
   )
