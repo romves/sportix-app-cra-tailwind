@@ -6,33 +6,8 @@ import InputField from "../components/InputField";
 import loginbg from "../assets/loginbg.png";
 import axios from "axios";
 
-const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const navigate = useNavigate();
-  const [error, setError] = useState({
-    message: "",
-    status: "",
-  });
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    axios
-      .post("https://ahmadsultan.aenzt.tech/api/login", {
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        console.log(response);
-        window.localStorage.setItem("token", response.data.token);
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
-        setError(error.response.data);
-      });
-  };
-
+const Login = ({handleLogin, setEmail, setPassword, error}) => {
+  
   return (
     <div className="flex justify-between items-center w-full h-full bg-primary-50 pr-4 z-50">
       <img

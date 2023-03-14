@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputCard from "../components/InputCard";
 import searchbg1 from "../assets/searchbg1.png";
 import Navbar from "../layouts/Navbar";
@@ -10,13 +10,16 @@ import { BsArrowRight } from "react-icons/bs";
 import { TbSoccerField } from "react-icons/tb";
 import Button from "../components/Button";
 import TabSelect from "../components/TabSelect";
+import { getKategori, getKota } from "../api"
 
 const SearchSection = ({head, desc, bgColor}) => {
   const [kota, setKota] = useState("");
   const [olahraga, setOlahraga] = useState("");
+  const [listOlahraga, setListOlahraga] = useState('')
+  const [listKota, setListKota] = useState('')
   const [isSearched, setIsSearched] = useState(false);
   const navigate = useNavigate();
-
+  
   const handleSearch = (e) => {
     e.preventDefault(e);
     setIsSearched((prev) => !prev);
@@ -24,10 +27,10 @@ const SearchSection = ({head, desc, bgColor}) => {
     //showLapangan/idKategori/idKota
   };
 
-  const listOlahraga = ["Futsal", "Badminton"];
-
-  const listKota = ["Malang", "Surabaya"];
-
+  useEffect(() => {
+    setListOlahraga(getKategori());
+    setListKota(getKota())
+  }, [])
   return (
     <>
       {isSearched ? (

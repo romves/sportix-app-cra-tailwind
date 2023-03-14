@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const getKota = async () => {
     const kota = await axios.get(`${process.env.REACT_APP_BASEURL}/showKota`)
-    return
+    return kota.data.data
 } 
 
 export const getLapangan = async () => {
@@ -10,7 +10,8 @@ export const getLapangan = async () => {
     return */
 } 
 
-export const searchLapangan = async () => {
-    /* const lapangan = await axios.get(`${process.env.REACT_APP_BASEURL}/searchLapangan/${name}`)
-    return */
+export const getKategori = async () => {
+    const category = await axios.get(`${process.env.REACT_APP_BASEURL}/showKategori`)
+    console.log(category.data.data)
+    return category.data.data
 } 

@@ -30,7 +30,7 @@ const Signup = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     if (setuju) {
-      axios
+      await axios
         .post("https://ahmadsultan.aenzt.tech/api/register", {
           name: nama,
           email: email,
