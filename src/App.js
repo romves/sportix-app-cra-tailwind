@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import Login from "./Auth/Login";
@@ -7,16 +7,17 @@ import NotFound from "./pages/NotFound";
 import Signup from "./Auth/Signup";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 import SewaLapangan from "./pages/SewaLapangan";
-import CariTeman from "./pages/CariTeman"
+import CariTeman from "./pages/CariTeman";
 import DescPage from "./pages/DescPage";
 import CariCoach from "./pages/CariCoach";
 import UserProfile from "./pages/UserProfile";
 import axios from "axios";
 import Checkout from "./pages/Checkout";
+import AuthRoutes from "./routes/AuthRoutes";
 
 function App() {
-  const [selectedLapangan, setSelectedLapangan] = useState('')
-  const [userID, setUserID] = useState('')
+  const [selectedLapangan, setSelectedLapangan] = useState("");
+  const [userID, setUserID] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({
@@ -36,11 +37,10 @@ function App() {
         window.localStorage.setItem("token", response.data.token);
         if (response.data.id) {
           setUserID(response.data.id);
-          console.log(userID)
+          console.log(userID);
         } else {
-          console.log('siuuuuu')
+          console.log("siuuuuu");
         }
-        
       })
       .catch((error) => {
         console.log(error);
@@ -52,17 +52,35 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home setSelectedLapangan={setSelectedLapangan}/>} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/sewa" element={<SewaLapangan setSelectedLapangan={setSelectedLapangan}/>} />
+          <Route
+            path="/sewa"
+            element={<SewaLapangan setSelectedLapangan={setSelectedLapangan} />}
+          />
 
-          <Route path="/teman" element={<CariTeman />}/>
-          <Route path="/coach" element={<CariCoach />}/>
-          <Route path="/sewa/desc" element={<DescPage selectedLapangan={selectedLapangan}/>}/>
-          <Route path="/profile" element={<UserProfile userID={userID}/>}/>
-          <Route path="/checkout" element={<Checkout />}/>
+          <Route path="/coach" element={<CariCoach />} />
+          <Route
+            path="/sewa/desc"
+            element={<DescPage selectedLapangan={selectedLapangan} />}
+          />
+          <Route element={<AuthRoutes />}>
+            <Route path="/teman" element={<CariTeman />} />
+            <Route path="/profile" element={<UserProfile userID={userID} />} />
+            <Route path="/checkout" element={<Checkout selectedLapangan={selectedLapangan}/>} />
+          </Route>
           <Route element={<ProtectedRoutes />}>
-            <Route path="/login" element={<Login handleLogin={handleLogin} setEmail={setEmail} setPassword={setPassword} error={error}/>} />
+            <Route
+              path="/login"
+              element={
+                <Login
+                  handleLogin={handleLogin}
+                  setEmail={setEmail}
+                  setPassword={setPassword}
+                  error={error}
+                />
+              }
+            />
             <Route path="/signup" element={<Signup />} />
           </Route>
         </Routes>

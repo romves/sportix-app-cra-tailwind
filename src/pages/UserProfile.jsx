@@ -5,6 +5,11 @@ import InputCard from "../components/InputCard";
 import InputField from "../components/InputField";
 import TabSelect from "../components/TabSelect";
 import Utama from "../layouts/Utama";
+import { MdOutlineDiamond } from "react-icons/md";
+import { IoMdExit } from "react-icons/io";
+import { GoNote } from "react-icons/go";
+import { BsGear, BsPerson } from "react-icons/bs";
+import { BiReceipt } from "react-icons/bi";
 
 const UserProfile = ({ userID }) => {
   const [userData, setUserData] = useState({
@@ -46,7 +51,6 @@ const UserProfile = ({ userID }) => {
   };
 
   useEffect(() => {
-    console.log(userID);
     getUserProfile();
   }, []);
 
@@ -56,18 +60,37 @@ const UserProfile = ({ userID }) => {
         <div className="pt-[75px]">
           <TabSelect />
           <div className="flex mx-16 ">
-            <InputCard className={"w-[400px]"}>
+            <InputCard className={"w-[400px] max-h-[500px]"}>
               <h4 className="text-primary-500 mb-8 h4-med">Profil User</h4>
               <h3 className="leading-10">{userData.name}</h3>
               <p className="body-text-nor-transp">
                 12.000 poin aktif <span className="ml-2">Platinum</span>
               </p>
               <div className="mt-8 flex flex-col justify-start text-start items-start">
-                <button className="mb-2">Akun saya</button>
-                <button className="mb-2">Pesanan saya</button>
-                <button className="mb-2">Pengaturan</button>
-                <button className="mb-2">Review saya</button>
-                <button className="mb-2">Keluar</button>
+                <button className="mb-2 flex items-center">
+                  <BsPerson className="mr-2"/>
+                  Akun saya
+                </button>
+                <button className="mb-2 flex items-center">
+                  <BiReceipt className="mr-2"/>
+                  Pesanan saya
+                </button>
+                <button className="mb-2 flex items-center">
+                  <BsGear className="mr-2"/>
+                  Pengaturan
+                </button>
+                <button className="mb-2 flex items-center">
+                  <MdOutlineDiamond className="mr-2"/>
+                  Poin saya
+                </button>
+                <button className="mb-2 flex items-center">
+                  <GoNote className="mr-2"/>
+                  Review saya
+                </button>
+                <button className="mb-2 flex items-center">
+                  <IoMdExit className="mr-2"/>
+                  Keluar
+                </button>
               </div>
             </InputCard>
             <div>
@@ -88,16 +111,20 @@ const UserProfile = ({ userID }) => {
                   </div>
                 </div>
                 <div className="flex my-8 ">
-                  <img
-                    src={userData.userPic}
-                    alt=""
-                    className="w-[250x] h-[250px] mr-8 border rounded-xl object-cover"
-                  />
-                  <div className=" border rounded-xl flex flex-col w-[800px] p-8">
+                  <div className="text-end w-[300x] h-[250px] mr-8 border rounded-xl">
+                    <img
+                      src={userData.userPic}
+                      alt=""
+                      className="w-[300x] h-[250px] rounded-xl object-cover"
+                    />
+                    <button>Ubah foto profil</button>
+                  </div>
+
+                  <div className=" border rounded-xl flex flex-col w-[650px] p-8">
                     <InputField placeholder={userData.name} />
                     <InputField placeholder={userData.jenisKelamin} />
                     <InputField placeholder={userData.pekerjaan} />
-                    <InputField placeholder={userData.umur}/>
+                    <InputField placeholder={userData.umur} />
                     <div className="flex items-end justify-end mt-8">
                       <Button>Simpan</Button>
                     </div>

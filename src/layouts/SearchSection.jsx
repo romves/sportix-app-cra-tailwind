@@ -12,19 +12,22 @@ import Button from "../components/Button";
 import TabSelect from "../components/TabSelect";
 import { getKategori } from "../api";
 import axios from "axios";
+import PartnerCard from "../components/PartnerCard";
+import TemanCard from "../components/TemanCard";
 
-const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode}) => {
-  const modeFitur = ['Lapangan', 'Teman', 'Coach'];
+const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode }) => {
+  const modeFitur = ["Lapangan", "Teman", "Coach"];
   const [kota, setKota] = useState("");
-  const [namaKota, setNamaKota] = useState('')
-  const [namaOlahraga, setNamaOlahraga] = useState('')
+  const [namaKota, setNamaKota] = useState("");
+  const [namaOlahraga, setNamaOlahraga] = useState("");
   const [olahraga, setOlahraga] = useState("");
   const [listOlahraga, setListOlahraga] = useState([]);
   const [listLapangan, setListLapangan] = useState([]);
+  const [listTeman, setListTeman] = useState([]);
   const [listKota, setListKota] = useState([]);
   const [isSearched, setIsSearched] = useState(false);
   const navigate = useNavigate();
-  
+
   const getKota = async () => {
     await axios
       .get(`${process.env.REACT_APP_BASEURL}/showKota`)
@@ -61,10 +64,15 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode}) => {
 
   const getTeman = async () => {
     await axios
-      .get(`${process.env.REACT_APP_BASEURL}/cariTeman/${olahraga}/${kota}`)
+      .get(`${process.env.REACT_APP_BASEURL}/cariTeman/${olahraga}/${kota}`, {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+        },
+      })
       .then((result) => {
         console.log(result.data.data);
-        setListLapangan(result.data.data);
+        setListTeman(result.data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -74,14 +82,25 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode}) => {
   const handleSearch = (e) => {
     e.preventDefault(e);
     setIsSearched((prev) => !prev);
-    getLapangan();
+    switch (mode) {
+      case 0:
+        getLapangan();
+        break;
+      case 1:
+        getTeman();
+        break;
+      case 2:
+        break;
+
+      default:
+        break;
+    }
     console.log(isSearched);
   };
 
   useEffect(() => {
     setListOlahraga(getKategori());
     setListKota(getKota());
-    console.log(kota, olahraga);
   }, []);
 
   return (
@@ -89,27 +108,36 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode}) => {
       {isSearched ? (
         <div className="w-full pt-[75px]">
           <TabSelect />
-          <div className="flex items-end justify-between mx-20 mb-2">
-            <div className="flex items-center">
-              <TbSoccerField className="text-[40px] mr-2" />
-              <div className="">
-                <h3>Pencarian {modeFitur[mode]}</h3>
-                <p className="flex items-center">
-                  {namaKota} <BsArrowRight className="mx-2" /> Lapangan {namaOlahraga}
-                </p>
+          {mode == 0 && (
+            <div className="flex items-end justify-between mx-20 mb-2">
+              <div className="flex items-center">
+                <TbSoccerField className="text-[40px] mr-2" />
+
+                <div className="">
+                  <h3>Pencarian {modeFitur[mode]}</h3>
+                  <p className="flex items-center">
+                    {namaKota} <BsArrowRight className="mx-2" /> Lapangan{" "}
+                    {namaOlahraga}
+                  </p>
+                </div>
               </div>
+              <Button className="mb-2" onClick={handleSearch}>
+                Ganti
+              </Button>
             </div>
-            <Button className="mb-2" onClick={handleSearch}>
-              Ganti
-            </Button>
-          </div>
+          )}
           <div className="flex text-end h-[40px] justify-end items-center px-20 mt-8">
             <LongFilterButton />
             <p>Filter</p>
           </div>
           <div className="px-20 py-2 ">
             <p>Hasil pencarian:</p>
-            <p>{listLapangan.length} hasil untuk lapangan {namaOlahraga} di kota {namaKota}</p>
+            <p>
+              {mode == 0
+                ? `${listLapangan.length} hasil untuk lapangan ${namaOlahraga} di kota
+              ${namaKota}`
+                : `${listTeman.length} hasil untuk kota dan olahraga yang di pilih`}
+            </p>
             <div className="flex flex-col justify-center my-4">
               {listLapangan.map((item) => {
                 return (
@@ -123,6 +151,18 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode}) => {
                     id={item.id}
                     setSelectedLapangan={setSelectedLapangan}
                   />
+                );
+              })}
+              {listTeman.map((item) => {
+                return (
+                  <div className="grid grid-cols-4">
+                    <TemanCard
+                      jk={item.user.jenisKelamin}
+                      nama={item.user.name}
+                      desc={item.deskripsi}
+                      umur={item.user.umur}
+                    />
+                  </div>
                 );
               })}
             </div>

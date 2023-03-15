@@ -1,5 +1,7 @@
 import React from "react";
 import Button from "../components/Button";
+import Calendar from "../components/Calendar";
+import FilterButton from "../components/FilterButton";
 import InputCard from "../components/InputCard";
 import LongFilterButton from "../components/LongFilterButton";
 import TabSelect from "../components/TabSelect";
@@ -10,26 +12,25 @@ const Checkout = () => {
     <Utama>
       <div className="pt-[75px]">
         <TabSelect />
-        <div className="h-[700px] w-full">
-          Pilih Jadwal sewa dan Lapangan
-          <div className="flex border mx-20">
+        <div className="h-[700px] w-full px-20">
+          <h3>Pilih Jadwal sewa dan Lapangan</h3>
+          <div className="flex border">
             <InputCard>
               <LongFilterButton />
-              <LongFilterButton />
               <div>
-                <div>
-
+                <FilterButton />
+              </div>
+              <div>
+                <div className="my-6">
+                  <Calendar />
                 </div>
                 Waktu
-                <div>
-                
-                </div>
+                <div></div>
               </div>
             </InputCard>
 
-
-            <InputCard >
-              Detail penyewaan
+            <InputCard>
+              <h4></h4> 
               <div className="border flex items-center w-[300px] rounded-xl">
                 <img
                   src=""

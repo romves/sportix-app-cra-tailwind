@@ -3,9 +3,9 @@ import { BsChevronDown, BsChevronUp } from "react-icons/bs";
 
 const Dropdown = ({ array, setData, setNama}) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const [selectedOption, setSelectedOption] = useState("");
-  const handleSelectOption = (option) => {
+
+  const handleSelectOption = async (option) => {
     setSelectedOption(option.namaKategori||option.namaKota);
     setData(option.id)
     setNama(option.namaKategori||option.namaKota)

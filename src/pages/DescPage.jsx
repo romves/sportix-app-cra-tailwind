@@ -24,6 +24,7 @@ const DescPage = ({selectedLapangan}) => {
       .get(`${process.env.REACT_APP_BASEURL}/showLapanganById/${selectedLapangan}`)
       .then((result) => {
         const data = result.data.data;
+        console.log(result)
         setDescData({
           nama: data.namaLapangan,
           harga: data.harga,
@@ -53,7 +54,7 @@ const DescPage = ({selectedLapangan}) => {
                   <DescBox descData={descData} handleSewa={handleSewa}/>
                 </div>
               </div>
-              <DiscountSection />
+              
             </div>
           </div>
       </Utama>

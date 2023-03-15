@@ -70,6 +70,9 @@
   .beranda-md-norm {
     @apply text-[16px] font-normal;
   }
+  .beranda-md-norm-trans {
+    @apply text-[16px] font-normal text-neutral-300;
+  }
 
   .body-md-med {
     @apply text-[14px] font-medium;

@@ -2,24 +2,24 @@ import React from "react";
 import Button from "../components/Button";
 import { BsPersonPlus } from "react-icons/bs";
 import { SlLocationPin } from "react-icons/sl";
-import imageteman from "../assets/imageteman.png" 
+import imageteman from "../assets/imageteman.png"
 
-const PartnerCard = ({nama, desc, umur, jk, kota}) => {
+const TemanCard = ({nama, umur, desc, jk}) => {
   return (
-    <div className=" drop-shadow-lg rounded-lg bg-white w-[380px] min-w-[380px] mr-8 mb-6">
+    <div className={`drop-shadow-lg rounded-lg bg-white w-[280px] min-w-[280px] mr-8 mb-6`}>
       <img
-        className="rounded-t-lg w-[380px] h-[265px] object-cover"
+        className={`rounded-t-lg w-[280px] h-[210px] object-cover`}
         src={imageteman}
         alt=""
       />
-      <div className="flex flex-col justify-between h-[200px] px-5 ">
+      <div className={`flex flex-col justify-between h-[170px] px-5`}>
         <div className="h-[100px]">
-          <h4 className="h4-med">{nama} - {jk == 1 ? "P" : "L"}/{umur}</h4>
-          <div className="flex items-center">
+          <p className="beranda-md-med">{nama} - {jk == 1 ? "P" : "L"}/{umur}</p>
+          <div className="flex items-center beranda-md-norm-trans">
             <SlLocationPin />
-            <h4 className=" mx-1 beranda-md-med">{kota}</h4>
+            <p className=" mx-1">Malang</p>
           </div>
-          <p className="beranda-md-norm">
+          <p className="body-sm-med">
             {desc}
           </p>
         </div>
@@ -31,7 +31,7 @@ const PartnerCard = ({nama, desc, umur, jk, kota}) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default PartnerCard;
+export default TemanCard
