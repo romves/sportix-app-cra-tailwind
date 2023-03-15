@@ -14,13 +14,13 @@ import { SiJusteat } from "react-icons/si";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { ImStarFull } from "react-icons/im";
 
-const DescBox = () => {
+const DescBox = ({descData, handleSewa}) => {
   return (
     <div>
       <div className="flex">
         <InputCard className={"w-[600px] h-[1000px]"}>
           <div className="flex flex-col w-[550px] text-start border-b pb-2">
-            <h1>Scorpio Futsal</h1>
+            <h1>{descData.nama}</h1>
             <p className="flex items-center">
               <ImStarFull className="text-primary-500 mr-1" />
               4.9/5 <span className="body-text-nor-transp">(12 reviews)</span>
@@ -94,7 +94,7 @@ const DescBox = () => {
               <HiOutlinePencilAlt className="mr-1" />
               Lokasi
             </h4>
-            <p>Jalan Dewandanu No. 12, Malang</p>
+            <p>{descData.lokasi}</p>
             <div></div>
           </div>
         </InputCard>
@@ -115,9 +115,9 @@ const DescBox = () => {
               className={"w-[210px] h-[200px] text-center justify-center"}
             >
               <p className="beranda-lg-norm text-primary-400">Biaya Sewa</p>
-              <h4 className="h4-nor">Rp70.000</h4>
+              <h4 className="h4-nor">{descData.harga}</h4>
               <p className="mb-6 body-text-nor-transp">/sesi/jam</p>
-              <Button>Sewa</Button>
+              <Button onClick={handleSewa()}>Sewa</Button>
             </InputCard>
           </div>
           <InputCard className={"h-[240px]"}>

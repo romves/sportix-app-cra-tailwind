@@ -1,15 +1,45 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DescBox from "../components/DescBox";
 import TabSelect from "../components/TabSelect";
 import DiscountSection from "../layouts/DiscountSection";
 import Utama from "../layouts/Utama";
 
-const DescPage = () => {
+const DescPage = ({selectedLapangan}) => {
+  const [descData, setDescData] = useState({
+    nama: '',
+    harga: '',
+    lokasi: '',
+    gambar: ''
+
+  })
   const navigate = useNavigate();
   const handleSewa = () => {
-    navigate("/");
+    navigate('/checkout')
   };
+
+  const getLapanganDesc = async() => {
+    await axios
+      .get(`${process.env.REACT_APP_BASEURL}/showLapanganById/${selectedLapangan}`)
+      .then((result) => {
+        const data = result.data.data;
+        setDescData({
+          nama: data.namaLapangan,
+          harga: data.harga,
+          lokasi: data.lokasi,
+          gambar: data.gambar,
+        }
+        )
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  useEffect(() => {
+    getLapanganDesc()
+  }, [])
 
   return (
     <>
@@ -17,10 +47,10 @@ const DescPage = () => {
           <div className="pt-[75px]">
             <TabSelect />
             <div>
-              <div className="flex mb-2">photo list</div>
+              <div className="flex mb-2 h-[300px]"><img src={descData.gambar} alt=""/></div>
               <div className="mb-2">
                 <div className="flex justify-center">
-                  <DescBox />
+                  <DescBox descData={descData} handleSewa={handleSewa}/>
                 </div>
               </div>
               <DiscountSection />

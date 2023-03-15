@@ -6,7 +6,7 @@ const CariCoach = () => {
   return (
     <div className="">
       <Utama>
-      <SearchSection head={"Cari Coach"} desc={'Isi dengan kota dan jenis olahraga yang sesuai minat kamu'}/>
+      <SearchSection head={"Cari Coach"} desc={'Isi dengan kota dan jenis olahraga yang sesuai minat kamu'} mode={2}/>
       </Utama>
     </div>
   )

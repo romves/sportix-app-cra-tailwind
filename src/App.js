@@ -12,8 +12,10 @@ import DescPage from "./pages/DescPage";
 import CariCoach from "./pages/CariCoach";
 import UserProfile from "./pages/UserProfile";
 import axios from "axios";
+import Checkout from "./pages/Checkout";
 
 function App() {
+  const [selectedLapangan, setSelectedLapangan] = useState('')
   const [userID, setUserID] = useState('')
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -52,13 +54,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="*" element={<NotFound />} />
-          <Route path="/sewa" element={<SewaLapangan />} />
+          <Route path="/sewa" element={<SewaLapangan setSelectedLapangan={setSelectedLapangan}/>} />
 
           <Route path="/teman" element={<CariTeman />}/>
           <Route path="/coach" element={<CariCoach />}/>
-          <Route path="/sewa/desc" element={<DescPage />}/>
+          <Route path="/sewa/desc" element={<DescPage selectedLapangan={selectedLapangan}/>}/>
           <Route path="/profile" element={<UserProfile userID={userID}/>}/>
-
+          <Route path="/checkout" element={<Checkout />}/>
           <Route element={<ProtectedRoutes />}>
             <Route path="/login" element={<Login handleLogin={handleLogin} setEmail={setEmail} setPassword={setPassword} error={error}/>} />
             <Route path="/signup" element={<Signup />} />

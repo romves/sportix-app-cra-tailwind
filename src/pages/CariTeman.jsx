@@ -6,7 +6,7 @@ const CariTeman = () => {
   return (
     <div className="">
       <Utama>
-      <SearchSection head={"Cari Teman"} desc={'Isi dengan kota dan jenis olahraga yang sesuai minat kamu'} bgColor={'nav-blue'}/>
+      <SearchSection head={"Cari Teman"} desc={'Isi dengan kota dan jenis olahraga yang sesuai minat kamu'} bgColor={'nav-blue'} mode={1}/>
       </Utama>
     </div>
   );

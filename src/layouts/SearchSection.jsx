@@ -10,27 +10,80 @@ import { BsArrowRight } from "react-icons/bs";
 import { TbSoccerField } from "react-icons/tb";
 import Button from "../components/Button";
 import TabSelect from "../components/TabSelect";
-import { getKategori, getKota } from "../api"
+import { getKategori } from "../api";
+import axios from "axios";
 
-const SearchSection = ({head, desc, bgColor}) => {
+const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode}) => {
+  const modeFitur = ['Lapangan', 'Teman', 'Coach'];
   const [kota, setKota] = useState("");
+  const [namaKota, setNamaKota] = useState('')
+  const [namaOlahraga, setNamaOlahraga] = useState('')
   const [olahraga, setOlahraga] = useState("");
-  const [listOlahraga, setListOlahraga] = useState('')
-  const [listKota, setListKota] = useState('')
+  const [listOlahraga, setListOlahraga] = useState([]);
+  const [listLapangan, setListLapangan] = useState([]);
+  const [listKota, setListKota] = useState([]);
   const [isSearched, setIsSearched] = useState(false);
   const navigate = useNavigate();
   
+  const getKota = async () => {
+    await axios
+      .get(`${process.env.REACT_APP_BASEURL}/showKota`)
+      .then((result) => {
+        setListKota(result.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getKategori = async () => {
+    await axios
+      .get(`${process.env.REACT_APP_BASEURL}/showKategori`)
+      .then((result) => {
+        setListOlahraga(result.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getLapangan = async () => {
+    await axios
+      .get(`${process.env.REACT_APP_BASEURL}/showLapangan/${olahraga}/${kota}`)
+      .then((result) => {
+        console.log(result.data.data);
+        setListLapangan(result.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getTeman = async () => {
+    await axios
+      .get(`${process.env.REACT_APP_BASEURL}/cariTeman/${olahraga}/${kota}`)
+      .then((result) => {
+        console.log(result.data.data);
+        setListLapangan(result.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const handleSearch = (e) => {
     e.preventDefault(e);
     setIsSearched((prev) => !prev);
+    getLapangan();
     console.log(isSearched);
-    //showLapangan/idKategori/idKota
   };
 
   useEffect(() => {
     setListOlahraga(getKategori());
-    setListKota(getKota())
-  }, [])
+    setListKota(getKota());
+    console.log(kota, olahraga);
+  }, []);
+
   return (
     <>
       {isSearched ? (
@@ -38,15 +91,17 @@ const SearchSection = ({head, desc, bgColor}) => {
           <TabSelect />
           <div className="flex items-end justify-between mx-20 mb-2">
             <div className="flex items-center">
-              <TbSoccerField className="text-[40px] mr-2"/>
+              <TbSoccerField className="text-[40px] mr-2" />
               <div className="">
-                <h3>Pencarian Lapangan</h3>
+                <h3>Pencarian {modeFitur[mode]}</h3>
                 <p className="flex items-center">
-                  Malang <BsArrowRight className="mx-2" /> Lapangan Futsal
+                  {namaKota} <BsArrowRight className="mx-2" /> Lapangan {namaOlahraga}
                 </p>
               </div>
             </div>
-            <Button className="mb-2" onClick={handleSearch}>Ganti</Button>
+            <Button className="mb-2" onClick={handleSearch}>
+              Ganti
+            </Button>
           </div>
           <div className="flex text-end h-[40px] justify-end items-center px-20 mt-8">
             <LongFilterButton />
@@ -54,16 +109,22 @@ const SearchSection = ({head, desc, bgColor}) => {
           </div>
           <div className="px-20 py-2 ">
             <p>Hasil pencarian:</p>
-            <p>{"12"} hasil untuk lapangan futsal di kota Malang</p>
+            <p>{listLapangan.length} hasil untuk lapangan {namaOlahraga} di kota {namaKota}</p>
             <div className="flex flex-col justify-center my-4">
-              <LapanganCard />
-              <LapanganCard />
-              <LapanganCard />
-              <LapanganCard />
-              <LapanganCard />
-              <LapanganCard />
-              <LapanganCard />
-              <LapanganCard />
+              {listLapangan.map((item) => {
+                return (
+                  <LapanganCard
+                    key={item.id}
+                    nama={item.namaLapangan}
+                    harga={item.harga}
+                    jamBuka={item.jamBuka}
+                    jamTutup={item.jamTutup}
+                    lokasi={item.lokasi}
+                    id={item.id}
+                    setSelectedLapangan={setSelectedLapangan}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
@@ -76,9 +137,14 @@ const SearchSection = ({head, desc, bgColor}) => {
           />
           <div className="flex justify-end w-full h-screen ">
             <div className="flex w-6/12 h-screen items-center justify-center pr-16">
-              <InputCard className="absolute w-[550px] h-[420px] "  bgColor={bgColor}>
+              <InputCard
+                className="absolute w-[550px] h-[420px] "
+                bgColor={bgColor}
+              >
                 <SearchComp
                   handleSearch={handleSearch}
+                  setNamaKota={setNamaKota}
+                  setNamaOlahraga={setNamaOlahraga}
                   setKota={setKota}
                   setOlahraga={setOlahraga}
                   listKota={listKota}
