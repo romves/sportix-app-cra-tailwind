@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Button from "../components/Button";
-import Salendar from "../components/Salendar";
-import FilterButton from "../components/FilterButton";
 import InputCard from "../components/InputCard";
 import ListWaktu from "../components/ListWaktu";
 import LongFilterButton from "../components/LongFilterButton";
@@ -10,7 +8,7 @@ import Utama from "../layouts/Utama";
 import Calendar from "react-calendar";
 import "../pages/calendar.css";
 import axios from "axios";
-import alat from "../assets/alat.png";
+
 
 const Checkout = ({ jamBuka, jamTutup, selectedLapangan }) => {
   const [selectedTime, setSelectedTime] = useState();
@@ -91,7 +89,7 @@ const Checkout = ({ jamBuka, jamTutup, selectedLapangan }) => {
                 </div>
               </div>
             </InputCard> */}
-            <InputCard className="absolute w-[580px] h-[280px] justify-center text-center">
+            {/* <InputCard className="absolute w-[580px] h-[280px] justify-center text-center">
               <h4 className="h4-nor">Daftar alat yang disewakan oleh pihak lapangan</h4>
               <div className="flex justify-center my-2">
                 <div className="mr-20">
@@ -119,7 +117,7 @@ const Checkout = ({ jamBuka, jamTutup, selectedLapangan }) => {
               </div>
               <div className="flex items-center justify-center mb-2"><Button>Lanjut ke Pembayaran</Button></div>
               <p className="body-md-norm">Waktu penyewaan alat <span>bebas</span> , sesuai <span>waktu peminjaman</span> lapangan</p>
-            </InputCard>
+            </InputCard> */}
           </>
         }
         <TabSelect />

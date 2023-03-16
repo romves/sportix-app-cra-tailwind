@@ -50,20 +50,29 @@ const UserProfile = ({ userID }) => {
       });
   };
 
-  const handleEditProfile = async (e) => {
-    e.preventDefault();
-    console.log('halo')
+  const handleEditProfile = async () => {
+    console.log("halo");
     await axios
-      .post("https://ahmadsultan.aenzt.tech/api/editUser", {
-        /* name: nama,
-          email: email,
+      .post(
+        "https://ahmadsultan.aenzt.tech/api/editUser",
+        {
+          name: userData.name,
+          pekerjaan: userData.pekerjaan,
+          /* email: email,
           password: password,
           nomor: noTelp,
           password_confirmation: confPassword,
           jenisKelamin: jenisKelamin,
           umur: umur,
           pekerjaan: pekerjaan, */
-      })
+        },
+        {
+          headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+          },
+        }
+      )
       .then((response) => {
         console.log(response);
         getUserProfile();
@@ -144,29 +153,37 @@ const UserProfile = ({ userID }) => {
                 </div>
 
                 <div className="w-[33vw] border rounded-xl flex flex-col p-8">
-                    <InputField
-                      type={'text'}
-                      value={userData.name}
-                      onChange={(e) => setUserData({...userData , name: e.target.value})}
-                    />
-                    <InputField
-                      type={'text'}
-                      value={userData.jenisKelamin}
-                      onChange={(e) => setUserData({...userData , jenisKelamin: e.target.value})}
-                    />
-                    <InputField
-                      type={'text'}
-                      value={userData.pekerjaan}
-                      onChange={(e) => setUserData({...userData , pekerjaan: e.target.value})}
-                    />
-                    <InputField
-                      type={'number'}
-                      value={userData.umur}
-                      onChange={(e) => setUserData({...userData , umur: e.target.value})}
-                    />
-                    <div className="flex items-end justify-end mt-8">
-                      <Button>Simpan</Button>
-                    </div>
+                  <InputField
+                    type={"text"}
+                    value={userData.name}
+                    onChange={(e) =>
+                      setUserData({ ...userData, name: e.target.value })
+                    }
+                  />
+                  <InputField
+                    type={"text"}
+                    value={userData.jenisKelamin}
+                    onChange={(e) =>
+                      setUserData({ ...userData, jenisKelamin: e.target.value })
+                    }
+                  />
+                  <InputField
+                    type={"text"}
+                    value={userData.pekerjaan}
+                    onChange={(e) =>
+                      setUserData({ ...userData, pekerjaan: e.target.value })
+                    }
+                  />
+                  <InputField
+                    type={"number"}
+                    value={userData.umur}
+                    onChange={(e) =>
+                      setUserData({ ...userData, umur: e.target.value })
+                    }
+                  />
+                  <div className="flex items-end justify-end mt-8">
+                    <Button onClick={() => handleEditProfile()}>Simpan</Button>
+                  </div>
                 </div>
               </div>
             </InputCard>

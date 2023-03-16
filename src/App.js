@@ -52,22 +52,32 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={<Home setSelectedLapangan={setSelectedLapangan}/>} />
+          <Route
+            path="/"
+            element={<Home setSelectedLapangan={setSelectedLapangan} />}
+          />
           <Route path="*" element={<NotFound />} />
-          <Route
-            path="/sewa"
-            element={<SewaLapangan setSelectedLapangan={setSelectedLapangan} />}
-          />
-
           <Route path="/coach" element={<CariCoach />} />
-          <Route
-            path="/sewa/desc"
-            element={<DescPage selectedLapangan={selectedLapangan} />}
-          />
+          <Route path="/sewa">
+            <Route
+              index
+              element={
+                <SewaLapangan setSelectedLapangan={setSelectedLapangan} />
+              }
+            />
+            <Route
+              path="desc"
+              element={<DescPage selectedLapangan={selectedLapangan} />}
+            />
+          </Route>
+
           <Route element={<AuthRoutes />}>
             <Route path="/teman" element={<CariTeman />} />
             <Route path="/profile" element={<UserProfile userID={userID} />} />
-            <Route path="/checkout" element={<Checkout selectedLapangan={selectedLapangan}/>} />
+            <Route
+              path="/checkout"
+              element={<Checkout selectedLapangan={selectedLapangan} />}
+            />
           </Route>
           <Route element={<ProtectedRoutes />}>
             <Route
