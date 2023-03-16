@@ -3,16 +3,17 @@ import Button from "../components/Button";
 import Calendar from "../components/Calendar";
 import FilterButton from "../components/FilterButton";
 import InputCard from "../components/InputCard";
+import ListWaktu from "../components/ListWaktu";
 import LongFilterButton from "../components/LongFilterButton";
 import TabSelect from "../components/TabSelect";
 import Utama from "../layouts/Utama";
 
-const Checkout = () => {
+const Checkout = ({jamBuka, jamTutup}) => {
   return (
     <Utama>
       <div className="pt-[75px]">
         <TabSelect />
-        <div className="h-[700px] w-full px-20">
+        <div className="h-[700px] w-5/12 px-20">
           <h3>Pilih Jadwal sewa dan Lapangan</h3>
           <div className="flex border">
             <InputCard>
@@ -24,14 +25,16 @@ const Checkout = () => {
                 <div className="my-6">
                   <Calendar />
                 </div>
-                Waktu
-                <div></div>
+                <h3>Waktu</h3>
+                <div>
+                  <ListWaktu />
+                </div>
               </div>
             </InputCard>
 
             <InputCard>
-              <h4></h4> 
-              <div className="border flex items-center w-[300px] rounded-xl">
+              <h3>Detail penyewaan</h3> 
+              <div className="border flex items-center w-6/12 rounded-xl">
                 <img
                   src=""
                   alt=""

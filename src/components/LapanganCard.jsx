@@ -26,7 +26,7 @@ const LapanganCard = ({nama, lokasi, jamBuka, jamTutup, harga, setSelectedLapang
           Fasilitas: Parkir, Kamar Ganti, Toilet, Kantin, AC, Wifi
         </p>
         <p className="body-text-nor-transp">
-          {`Buka setiap hari dari jam ${jamBuka} - ${jamTutup}`}
+          {`Buka setiap hari dari jam ${jamBuka < 10 ? "0" + jamBuka : jamBuka}.00 - ${jamTutup < 10 ? "0" + jamTutup : jamTutup}.00`}
         </p>
         <div className="flex items-center justify-between mt">
           <div className="flex text-primary-500 items-center pt-6">
