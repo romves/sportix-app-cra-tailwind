@@ -67,10 +67,10 @@ const Signup = () => {
       <img
         src={loginbg}
         alt=""
-        className=" h-screen object-cover rounded-r-2xl"
+        className="w-[50vw] h-screen object-cover rounded-r-2xl"
       />
       <div className="flex h-screen w-7/12 mx-10 items-center justify-end text-center">
-        <InputCard className="w-[500px] h-[600px]">
+        <InputCard className="w-[40vw] h-[600px]">
           <div className="text-start items-center ">
             <h1 className="font-bold h1-semi mb-1">Buat akunmu</h1>
             <p className="mb-6 body-text-norm">

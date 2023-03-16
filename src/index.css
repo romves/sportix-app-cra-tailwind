@@ -28,6 +28,9 @@
   .h3-nor {
     @apply text-[32px] font-normal;
   }
+  .h3-lt {
+    @apply text-[32px] font-light;
+  }
 
   .h4-med {
     @apply text-[24px] font-medium;

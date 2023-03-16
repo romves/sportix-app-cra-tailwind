@@ -9,13 +9,13 @@ import axios from "axios";
 const Login = ({handleLogin, setEmail, setPassword, error}) => {
   
   return (
-    <div className="flex justify-between items-center w-full h-full bg-primary-50 pr-4 z-50">
+    <div className="flex justify-between items-center w-full h-full bg-primary-50 z-50">
       <img
         src={loginbg}
         alt=""
-        className="w-11-12 h-screen object-cover rounded-r-2xl"
+        className="w-[50vw] h-screen object-cover rounded-r-2xl"
       />
-      <div className="flex h-screen w-7/12 mx-10 items-center justify-end">
+      <div className="flex h-screen w-[40vw] mx-10 items-center justify-center">
         <InputCard className="w-[500px] min-w-[500px] h-[600px] ">
           <div className=" min-w-[440px]">
             <h1 className="h1-semi">Masuk</h1>

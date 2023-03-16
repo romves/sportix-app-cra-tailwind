@@ -6,10 +6,10 @@ const Dropdown = ({ array, setData, setNama}) => {
   const [selectedOption, setSelectedOption] = useState("");
 
   const handleSelectOption = async (option) => {
-    setSelectedOption(option.namaKategori||option.namaKota);
-    setData(option.id)
-    setNama(option.namaKategori||option.namaKota)
+    setSelectedOption(option.namaKategori||option.namaKota||option);
     setIsOpen((prev) => !prev);
+    setData(option.id||option);
+    setNama && setNama(option.namaKategori||option.namaKota)
   };
 
   return (
@@ -24,15 +24,15 @@ const Dropdown = ({ array, setData, setNama}) => {
       </button>
       {isOpen && (
         <div className="absolute flex flex-col px-5 items-center justify-between w-[430px] min-h-[50px] mt-[3px] bg-primary-50 border border-black rounded-lg">
-          {array.map((option) => {
+          {array.map((option,i) => {
             return (
               <button
                 className="flex hover:bg-primary-200 items-center w-[428px] h-[48px] px-5 rounded-md"
                 onClick={() => handleSelectOption(option)}
-                key={option.id}
+                key={option.id||i}
                 type="button"
               >
-                <h4>{option.namaKategori||option.namaKota}</h4>
+                <h4>{option.namaKategori||option.namaKota||option}</h4>
               </button>
             );
           })}

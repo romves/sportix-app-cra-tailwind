@@ -76,11 +76,10 @@ const Navbar = () => {
             {isOpen && (
               <div className="absolute flex w-[600px] h-[200px] justify-end -z-50">
                 <div className="absolute flex flex-col h-[100px] w-[150px] bg-nav-blue text-white mt-16  rounded-xl">
-                  <div className="flex h-[75px] text-center justify-center border-b-2 items-center ">
-                    <BsPerson className="mr-1"/>
-                    <button onClick={() => navigate('/profile')} className="">Profil</button>
-                  </div>
-                  <button onClick={handleLogout} className="h-[75px]">
+                  <button onClick={() => navigate('/profile')} className="flex h-[75px] text-center justify-center border-b-2 items-center hover:bg-nav-purple rounded-t-xl">
+                    <BsPerson className="mr-1"/>Profil
+                  </button>
+                  <button onClick={handleLogout} className="h-[75px] rounded-xl hover:bg-nav-purple">
                     {" "}
                     Keluar
                   </button>

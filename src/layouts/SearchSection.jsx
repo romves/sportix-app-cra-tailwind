@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import InputCard from "../components/InputCard";
 import searchbg1 from "../assets/searchbg1.png";
-import Navbar from "../layouts/Navbar";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SearchComp from "../components/SearchComp";
 import LapanganCard from "../components/LapanganCard";
 import LongFilterButton from "../components/LongFilterButton";
@@ -10,13 +9,12 @@ import { BsArrowRight } from "react-icons/bs";
 import { TbSoccerField } from "react-icons/tb";
 import Button from "../components/Button";
 import TabSelect from "../components/TabSelect";
-import { getKategori } from "../api";
 import axios from "axios";
-import PartnerCard from "../components/PartnerCard";
 import TemanCard from "../components/TemanCard";
 
 const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode }) => {
   const modeFitur = ["Lapangan", "Teman", "Coach"];
+  const [filter, setFilter] = useState("");
   const [kota, setKota] = useState("");
   const [namaKota, setNamaKota] = useState("");
   const [namaOlahraga, setNamaOlahraga] = useState("");
@@ -26,7 +24,6 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode }) => {
   const [listTeman, setListTeman] = useState([]);
   const [listKota, setListKota] = useState([]);
   const [isSearched, setIsSearched] = useState(false);
-  const navigate = useNavigate();
 
   const getKota = async () => {
     await axios
@@ -54,7 +51,32 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode }) => {
     await axios
       .get(`${process.env.REACT_APP_BASEURL}/showLapangan/${olahraga}/${kota}`)
       .then((result) => {
-        console.log(result.data.data);
+        setListLapangan(result.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getLapanganTerendah = async () => {
+    await axios
+      .get(
+        `${process.env.REACT_APP_BASEURL}/showLapanganTerendah/${olahraga}/${kota}`
+      )
+      .then((result) => {
+        setListLapangan(result.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getLapanganTertinggi = async () => {
+    await axios
+      .get(
+        `${process.env.REACT_APP_BASEURL}/showLapanganTertinggi/${olahraga}/${kota}`
+      )
+      .then((result) => {
         setListLapangan(result.data.data);
       })
       .catch((error) => {
@@ -70,8 +92,7 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode }) => {
           Authorization: `Bearer ${window.localStorage.getItem("token")}`,
         },
       })
-      .then((result) => {
-        console.log(result.data.data);
+      .then((result) => {       
         setListTeman(result.data.data);
       })
       .catch((error) => {
@@ -91,11 +112,19 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode }) => {
         break;
       case 2:
         break;
-
       default:
         break;
     }
-    console.log(isSearched);
+  };
+
+  const handleFilter = () => {
+    if (filter === 0) {
+      getLapanganTertinggi()
+    } else if (filter === 1){
+      getLapanganTerendah()
+    } else {
+      getLapangan()
+    }
   };
 
   useEffect(() => {
@@ -127,7 +156,7 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode }) => {
             </div>
           )}
           <div className="flex text-end h-[40px] justify-end items-center px-20 mt-8">
-            <LongFilterButton />
+            <LongFilterButton setFilter={setFilter} handleFilter={handleFilter}/>
             <p>Filter</p>
           </div>
           <div className="px-20 py-2 ">
