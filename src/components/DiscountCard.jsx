@@ -33,7 +33,7 @@ const DiscountCard = ({ nama, lokasi, harga, setSelectedLapangan, id }) => {
             <ImStarFull />
             <ImStarFull />
           </div>
-          <Button onClick={() => handleShowDesc(id)} type="button" width="170px">
+          <Button className={`w-[180px]`} onClick={() => handleShowDesc(id)} type="button" >
             <p>Sewa</p>
           </Button>
         </div>

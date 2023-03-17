@@ -3,7 +3,8 @@ import { Navigate } from "react-router-dom";
 import SearchSection from "../layouts/SearchSection";
 import Utama from "../layouts/Utama";
 
-const CariTeman = ({setSelectedTeman, modeFitur}) => {
+const CariTeman = ({setSelectedTeman, modeFitur, getSearchData, olahraga, kota, setOlahraga, setKota}) => {
+  
   return (
     <div className="">
       <Utama>
@@ -14,6 +15,11 @@ const CariTeman = ({setSelectedTeman, modeFitur}) => {
           bgColor={"nav-blue"}
           mode={1}
           modeFitur={modeFitur}
+          getSearchData={getSearchData}
+          olahraga={olahraga}
+          kota={kota}
+          setOlahraga={setOlahraga}
+          setKota={setKota}
         />
       </Utama>
     </div>

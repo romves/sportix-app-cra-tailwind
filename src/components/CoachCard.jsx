@@ -3,7 +3,7 @@ import { ImStarFull } from "react-icons/im";
 import Button from "./Button";
 import imagecoch from "../assets/imagecoch.png";
 
-const CoachCard = () => {
+const CoachCard = ({name}) => {
   return (
     <div className="drop-shadow-lg rounded-lg bg-white min-w-[380px] w-[378px] mr-8">
       <img

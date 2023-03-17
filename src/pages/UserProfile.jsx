@@ -57,15 +57,11 @@ const UserProfile = ({ userID }) => {
       .post(
         "https://ahmadsultan.aenzt.tech/api/editUser",
         {
+          id: userID,
           name: userData.name,
           pekerjaan: userData.pekerjaan,
-          /* email: email,
-          password: password,
-          nomor: noTelp,
-          password_confirmation: confPassword,
-          jenisKelamin: jenisKelamin,
-          umur: umur,
-          pekerjaan: pekerjaan, */
+          deskripsi: userData.deskripsi,
+          umur: userData.umur,
         },
         {
           headers: {

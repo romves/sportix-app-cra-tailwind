@@ -16,7 +16,6 @@ const Home = ({setSelectedLapangan, userID}) => {
     await axios
       .get(`https://ahmadsultan.aenzt.tech/api/showSemuaLapangan`, {})
       .then((response) => {
-        console.log(response.data.data);
         setSemuaLapangan(response.data.data);
       })
       .catch((error) => {
@@ -44,7 +43,6 @@ const Home = ({setSelectedLapangan, userID}) => {
         },
       })
       .then((response) => {
-        console.log(response);
         setWelcome({
           name: response.data.data.name,
         });

@@ -12,13 +12,12 @@ import TabSelect from "../components/TabSelect";
 import axios from "axios";
 import TemanCard from "../components/TemanCard";
 import Cookies from "js-cookie";
+import CoachCard from "../components/CoachCard";
 
-const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSelectedTeman, modeFitur}) => {
+const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSelectedTeman, modeFitur, olahraga, kota, setOlahraga, setKota}) => {
   const [filter, setFilter] = useState("");
-  const [kota, setKota] = useState("");
   const [namaKota, setNamaKota] = useState("");
   const [namaOlahraga, setNamaOlahraga] = useState("");
-  const [olahraga, setOlahraga] = useState("");
   const [listOlahraga, setListOlahraga] = useState([]);
   const [listLapangan, setListLapangan] = useState([]);
   const [listTeman, setListTeman] = useState([]);
@@ -92,7 +91,8 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSele
           Authorization: `Bearer ${Cookies.get("token")}`,
         },
       })
-      .then((result) => {       
+      .then((result) => { 
+        console.log(listTeman)      
         setListTeman(result.data.data);
       })
       .catch((error) => {
@@ -109,9 +109,6 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSele
         break;
       case 1:
         getTeman();
-        break;
-      case 2:
-        ;
         break;
       default:
         break;
@@ -203,6 +200,7 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSele
                   </div>
                 );
               })}
+              
             </div>
           </div>
         </div>

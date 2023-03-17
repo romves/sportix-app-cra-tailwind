@@ -7,17 +7,61 @@ import DescBox from "../components/DescBox";
 import TabSelect from "../components/TabSelect";
 import Utama from "../layouts/Utama";
 import imagedtteman from "../assets/imagedtteman.png";
+import Cookies from "js-cookie";
 
-const DescPage = ({ selectedLapangan, mode, selectedTeman}) => {
+const DescPage = ({
+  selectedLapangan,
+  mode,
+  selectedTeman,
+  kota,
+  olahraga,
+}) => {
+  const [listTeman, setListTeman] = useState([]);
   const [descData, setDescData] = useState({
     nama: "",
     harga: "",
     lokasi: "",
     gambar: "",
+    deskripsi: "",
   });
   const navigate = useNavigate();
   const handleSewa = () => {
     navigate("/checkout");
+  };
+  console.log(listTeman);
+  const handleCariTeman = async () => {
+    await axios
+      .get(`${process.env.REACT_APP_BASEURL}/cariTeman/${olahraga}/${kota}`, {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${Cookies.get("token")}`,
+        },
+      })
+      .then((result) => {
+        const data = result.data.data;
+        setListTeman(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const handleAddAccTeman = async () => {
+    await axios.get(
+      `${process.env.REACT_APP_BASEURL}/showLapanganById/addCariTeman`,
+      {
+        idCariTeman: "",
+        idOwner: "",
+        idTeman: "",
+        status: "",
+      },
+      {
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${Cookies.get("token")}`,
+        },
+      }
+    );
   };
 
   const getLapanganDesc = async () => {
@@ -42,6 +86,7 @@ const DescPage = ({ selectedLapangan, mode, selectedTeman}) => {
 
   useEffect(() => {
     getLapanganDesc();
+    handleCariTeman();
   }, []);
 
   return (
@@ -72,34 +117,43 @@ const DescPage = ({ selectedLapangan, mode, selectedTeman}) => {
                       className="rounded-xl"
                     />
                   </div>
-                  <div className="px-6 py-2 beranda-lg-norm w-[600px]">
-                    <h3 className="mt-6">Jessica Chastain</h3>
-                    <p className="beranda-lg-transp mb-2">
-                      (P/29) Malang, Jawa Timur <br /> Senin 17.00 - 20.00
-                    </p>
+                  {listTeman.map((item) => {
+                    return (
+                      <div className="px-6 py-2 beranda-lg-norm w-[600px]">
+                        <h3 className="mt-6">{item.user.name}</h3>
+                        <p className="beranda-lg-transp mb-2">
+                          ({item.user.jenisKelamin}/{item.user.umur}) {item.kota.NamaKota}, Jawa Timur <br /> {item.tanggalMain} Senin {item.jam}
+                        </p>
 
-                    <p>Olahraga :</p>
-                    <ul>
-                      <li>Badminton</li>
-                      <li>Futsal</li>
-                    </ul>
+                        <p>Olahraga :</p>
+                        <ul>
+                          <li>Badminton</li>
+                          <li>Futsal</li>
+                        </ul>
 
-                    <h4 className="h4-med mt-4">Deskripsi</h4>
-                    <p>
-                      Saya baru saja pindah di Malang. Saat ini saya sedang
-                      fokus untuk berlatih olahraga badminton dan lari karena
-                      saya ingin mengikuti marathon tahun ini. Saya lebih suka
-                      lari di alam (outdoor). Target lari saya setiap hari
-                      adalah 10 km dan saya biasa lari sebanyak 4 kali seminggu.
-                    </p>
+                        <h4 className="h4-med mt-4">Deskripsi</h4>
+                        <p>
+                          Saya baru saja pindah di Malang. Saat ini saya sedang
+                          fokus untuk berlatih olahraga badminton dan lari
+                          karena saya ingin mengikuti marathon tahun ini. Saya
+                          lebih suka lari di alam (outdoor). Target lari saya
+                          setiap hari adalah 10 km dan saya biasa lari sebanyak
+                          4 kali seminggu.
+                        </p>
 
-                    <h4 className="h4-med mt-4">Ingin berolahraga bersama?</h4>
-                    <p>Tambahkan teman dan berolahraga bersama.</p>
-                    <Button width="320px" className={"h-[65px] mt-6 mb-4 "}>
-                      <p className="mx-2 beranda-lg-norm">Tambahkan teman</p>
-                      <BsPersonPlus className="text-2xl"/>
-                    </Button>
-                  </div>
+                        <h4 className="h4-med mt-4">
+                          Ingin berolahraga bersama?
+                        </h4>
+                        <p>Tambahkan teman dan berolahraga bersama.</p>
+                        <Button width="320px" className={"h-[65px] mt-6 mb-4 "}>
+                          <p className="mx-2 beranda-lg-norm">
+                            Tambahkan teman
+                          </p>
+                          <BsPersonPlus className="text-2xl" />
+                        </Button>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

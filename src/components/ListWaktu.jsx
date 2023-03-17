@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
-const ListWaktu = ({ buka, tutup, harga, setSelectedTime }) => {
-  const [selectedTimes, setSelectedTimes] = useState([null]);
+const ListWaktu = ({ buka, tutup, harga, setSelectedTimes, selectedTimes }) => {
+  
 
   const handleTimeSelect = (jam) => {
     const lastSelectedTime = selectedTimes[selectedTimes.length - 1];

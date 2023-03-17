@@ -19,7 +19,10 @@ import Utama from "./layouts/Utama";
 
 function App() {
   const modeFitur = ["Lapangan", "Teman", "Coach"];
-  const [selectedTeman, setSelectedTeman] = useState('')
+  const [kota, setKota] = useState("");
+  const [olahraga, setOlahraga] = useState("");
+  const [searchData, getSearchData] = useState();
+  const [selectedTeman, setSelectedTeman] = useState("");
   const [selectedLapangan, setSelectedLapangan] = useState("");
   const [userID, setUserID] = useState("");
   const [email, setEmail] = useState("");
@@ -29,9 +32,9 @@ function App() {
     status: "",
   });
   const navigate = useNavigate();
+  console.log(userID);
 
   const handleLogin = async (e) => {
-    
     e.preventDefault();
     await axios
       .post("https://ahmadsultan.aenzt.tech/api/login", {
@@ -104,23 +107,66 @@ function App() {
         <Route path="/sewa">
           <Route
             index
-            element={<SewaLapangan setSelectedLapangan={setSelectedLapangan} modeFitur={modeFitur}/>}
+            element={
+              <SewaLapangan
+                setSelectedLapangan={setSelectedLapangan}
+                modeFitur={modeFitur}
+                olahraga={olahraga}
+                kota={kota}
+                setOlahraga={setOlahraga}
+                setKota={setKota}
+              />
+            }
           />
           <Route
             path="desc"
-            element={<DescPage selectedLapangan={selectedLapangan} mode={0} modeFitur={modeFitur}/>}
+            element={
+              <DescPage
+                selectedLapangan={selectedLapangan}
+                mode={0}
+                modeFitur={modeFitur}
+                olahraga={olahraga}
+                kota={kota}
+              />
+            }
           />
         </Route>
- 
+
         <Route element={<AuthRoutes />}>
           <Route path="/cariteman">
-            <Route index element={<CariTeman setSelectedTeman={setSelectedTeman} modeFitur={modeFitur}/>} />
-            <Route path="desc" element={<DescPage selectedTeman={selectedTeman} mode={1} modeFitur={modeFitur}/>} />
+            <Route
+              index
+              element={
+                <CariTeman
+                  setSelectedTeman={setSelectedTeman}
+                  modeFitur={modeFitur}
+                  getSearchData={getSearchData}
+                  olahraga={olahraga}
+                  kota={kota}
+                  setOlahraga={setOlahraga}
+                  setKota={setKota}
+                />
+              }
+            />
+            <Route
+              path="desc"
+              element={
+                <DescPage
+                  selectedTeman={selectedTeman}
+                  mode={1}
+                  modeFitur={modeFitur}
+                  olahraga={olahraga}
+                  kota={kota}
+                />
+              }
+            />
           </Route>
           <Route path="/profile" element={<UserProfile userID={userID} />} />
           <Route
             path="/checkout"
-            element={<Checkout selectedLapangan={selectedLapangan} />}
+            element={
+              <Checkout selectedLapangan={selectedLapangan} userID={userID} />
+            }
           />
         </Route>
         <Route element={<ProtectedRoutes />}>

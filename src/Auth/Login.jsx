@@ -15,7 +15,7 @@ const Login = ({handleLogin, setEmail, setPassword, error}) => {
         alt=""
         className="w-[50vw] h-screen object-cover rounded-r-2xl"
       />
-      <div className="flex h-screen w-[40vw] mx-10 items-center justify-center">
+      <div className="flex h-screen w-[500px] mx-10 items-center justify-center">
         <InputCard className="w-[40vw] h-[600px] ">
           <div className=" min-w-[440px]">
             <h1 className="h1-semi">Masuk</h1>
