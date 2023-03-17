@@ -9,6 +9,7 @@ import Dropdown from "../components/Dropdown";
 import Checkbox from "../components/Checkbox";
 import { VscCircle, VscCircleFilled } from "react-icons/vsc";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Signup = () => {
   const [nama, setNama] = useState("");
@@ -43,7 +44,7 @@ const Signup = () => {
         })
         .then((response) => {
           console.log(response);
-          window.localStorage.setItem("token", response.data.token);
+          Cookies.set("token", response.data.token);
           setNama("");
           setEmail("");
           setNoTelp("");
@@ -63,15 +64,15 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex justify-between items-center w-full h-full bg-primary-50 pr-4 z-50">
+    <div className="flex justify-between items-center w-full h-full bg-primary-50 z-50">
       <img
         src={loginbg}
         alt=""
         className="w-[50vw] h-screen object-cover rounded-r-2xl"
       />
-      <div className="flex h-screen w-7/12 mx-10 items-center justify-end text-center">
+      <div className="flex h-screen w-[40vw] mx-10 items-center justify-center">
         <InputCard className="w-[40vw] h-[600px]">
-          <div className="text-start items-center ">
+          <div className="min-w-[440px]">
             <h1 className="font-bold h1-semi mb-1">Buat akunmu</h1>
             <p className="mb-6 body-text-norm">
               Buat akun untuk memesan lapangan, mencari partner olahraga dan
@@ -114,7 +115,12 @@ const Signup = () => {
                   </p>
                 </div>
                 <div className="flex m-auto text-white mt-1">
-                  <Button type="submit" onClick={handleSignUp} className="my-4">
+                  <Button
+                    width={"180px"}
+                    type="submit"
+                    onClick={handleSignUp}
+                    className="my-4"
+                  >
                     Daftar
                   </Button>
                 </div>
@@ -172,6 +178,7 @@ const Signup = () => {
                 </div>
                 <div className="flex m-auto text-white">
                   <Button
+                    width={"180px"}
                     type="button"
                     onClick={() => setNextPG(true)}
                     className="my-4"

@@ -108,7 +108,7 @@ const DescBox = ({descData, handleSewa}) => {
               <p className="beranda-lg-norm text-primary-400">Membership</p>
               <h4 className="h4-nor">Rp300.000</h4>
               <p className="mb-6 body-text-nor-transp">/bulan</p>
-              <Button>Daftar</Button>
+              <Button width={'180px'}>Daftar</Button>
             </InputCard>
               
             <InputCard
@@ -117,7 +117,7 @@ const DescBox = ({descData, handleSewa}) => {
               <p className="beranda-lg-norm text-primary-400">Biaya Sewa</p>
               <h4 className="h4-nor">{descData.harga}</h4>
               <p className="mb-6 body-text-nor-transp">/sesi/jam</p>
-              <Button onClick={() => handleSewa()}>Sewa</Button>
+              <Button width={'180px'} onClick={() => handleSewa()}>Sewa</Button>
             </InputCard>
           </div>
           <InputCard className={"h-[240px]"}>

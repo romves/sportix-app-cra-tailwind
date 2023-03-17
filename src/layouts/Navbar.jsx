@@ -7,12 +7,12 @@ import { BiReceipt } from "react-icons/bi";
 import logo from "../assets/logo.png";
 import { BsPerson } from "react-icons/bs";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const handleLogout = async () => {
-    console.log(window.localStorage.getItem("token"));
     axios
       .post(
         "https://ahmadsultan.aenzt.tech/api/logout",
@@ -20,14 +20,13 @@ const Navbar = () => {
         {
           headers: {
             Accept: "application/json",
-            Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+            Authorization: `Bearer ${Cookies.get("token")}`,
           },
         }
       )
       .then((response) => {
         console.log(response);
-        window.localStorage.removeItem("token");
-
+        Cookies.remove("token");
         setTimeout(() => {
           window.location.reload();
           navigate("/");
@@ -62,7 +61,7 @@ const Navbar = () => {
             <Link>Pesanan Saya</Link>
           </li>
         </ul>
-        {window.localStorage.getItem("token") ? (
+        {Cookies.get("token") ? (
           <>
             <div className="flex items-center">
               <button

@@ -133,6 +133,7 @@ const Checkout = ({ jamBuka, jamTutup, selectedLapangan }) => {
                 <h3>Waktu</h3>
                 <div>
                   <ListWaktu
+                    selectedTime={selectedTime}
                     setSelectedTime={setSelectedTime}
                     buka={descData.buka}
                     tutup={descData.tutup}

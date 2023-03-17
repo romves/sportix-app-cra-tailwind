@@ -10,6 +10,7 @@ import { IoMdExit } from "react-icons/io";
 import { GoNote } from "react-icons/go";
 import { BsGear, BsPerson } from "react-icons/bs";
 import { BiReceipt } from "react-icons/bi";
+import Cookies from "js-cookie";
 
 const UserProfile = ({ userID }) => {
   const [userData, setUserData] = useState({
@@ -28,7 +29,7 @@ const UserProfile = ({ userID }) => {
       .get(`https://ahmadsultan.aenzt.tech/api/userId/${userID}`, {
         headers: {
           Accept: "application/json",
-          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+          Authorization: `Bearer ${Cookies.get("token")}`,
         },
       })
       .then((response) => {
@@ -69,7 +70,7 @@ const UserProfile = ({ userID }) => {
         {
           headers: {
             Accept: "application/json",
-            Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+            Authorization: `Bearer ${Cookies.get("token")}`,
           },
         }
       )
@@ -90,7 +91,7 @@ const UserProfile = ({ userID }) => {
     <div>
       <Utama>
         <div className="pt-[75px]">
-          <TabSelect />
+          <TabSelect nav1={'Profil'}/>
           <div className="flex mx-16 mb-8">
             <InputCard className={"w-[30vw] min-w-[300px] h-[full]"}>
               <h4 className="text-primary-500 mb-8 h4-med">Profil User</h4>
@@ -182,7 +183,7 @@ const UserProfile = ({ userID }) => {
                     }
                   />
                   <div className="flex items-end justify-end mt-8">
-                    <Button onClick={() => handleEditProfile()}>Simpan</Button>
+                    <Button width={'180px'} onClick={() => handleEditProfile()}>Simpan</Button>
                   </div>
                 </div>
               </div>

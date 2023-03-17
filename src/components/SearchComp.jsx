@@ -28,7 +28,7 @@ const SearchComp = ({setKota, setOlahraga, listKota, listOlahraga, handleSearch,
             </div>
           </div>
           <div className="flex justify-center mt-10">
-            <Button type="submit">CARI</Button>
+            <Button width={'180px'} type="submit"><p className="body-md-semi">CARI</p></Button>
           </div>
         </div>
       </form>

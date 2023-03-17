@@ -16,7 +16,7 @@ const Login = ({handleLogin, setEmail, setPassword, error}) => {
         className="w-[50vw] h-screen object-cover rounded-r-2xl"
       />
       <div className="flex h-screen w-[40vw] mx-10 items-center justify-center">
-        <InputCard className="w-[500px] min-w-[500px] h-[600px] ">
+        <InputCard className="w-[40vw] h-[600px] ">
           <div className=" min-w-[440px]">
             <h1 className="h1-semi">Masuk</h1>
             <p className="mb-16 body-text">
@@ -42,7 +42,7 @@ const Login = ({handleLogin, setEmail, setPassword, error}) => {
                 Lupa kata sandi?
               </p>
               <div className="flex flex-col items-center pt-[85px] text-white mt-10">
-                <Button className="my-4">Masuk</Button>
+                <Button width={'180px'} className="my-4">Masuk</Button>
                 <div className="flex m-auto p-1 border border-black rounded-lg">
                   <p className="text-primary-500 text-center body-md-norm">
                     <span className="text-black">Belum punya akun?</span>{" "}

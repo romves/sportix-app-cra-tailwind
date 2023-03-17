@@ -24,9 +24,9 @@ const PartnerCard = ({nama, desc, umur, jk, kota}) => {
           </p>
         </div>
         <div className="flex my-1 items-end text-end justify-end">
-          <Button type="button" width="190px" className={'mb-4'}>
-            <p className="mx-2">Tambahkan teman</p>
-            <BsPersonPlus />
+          <Button type="button" width={"180px"} className={'mb-4'}>
+            <p className="mx-2 body-md-semi">Tambahkan teman</p>
+            <BsPersonPlus className="text-lg"/>
           </Button>
         </div>
       </div>

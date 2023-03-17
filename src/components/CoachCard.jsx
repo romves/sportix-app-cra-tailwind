@@ -1,7 +1,7 @@
 import React from "react";
 import { ImStarFull } from "react-icons/im";
 import Button from "./Button";
-import imagecoch from "../assets/imagecoch.png"
+import imagecoch from "../assets/imagecoch.png";
 
 const CoachCard = () => {
   return (
@@ -28,7 +28,7 @@ const CoachCard = () => {
             <ImStarFull />
           </div>
           <Button type="button" width="200px">
-            Reservasi
+            <p className="body-md-semi">Reservasi</p>
           </Button>
         </div>
       </div>

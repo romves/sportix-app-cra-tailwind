@@ -24,7 +24,7 @@ const Dropdown = ({ array, setData, setNama}) => {
       </button>
       {isOpen && (
         <div className="absolute flex flex-col px-5 items-center justify-between w-[430px] min-h-[50px] mt-[3px] bg-primary-50 border border-black rounded-lg">
-          {array.map((option,i) => {
+          {array?.map((option,i) => {
             return (
               <button
                 className="flex hover:bg-primary-200 items-center w-[428px] h-[48px] px-5 rounded-md"

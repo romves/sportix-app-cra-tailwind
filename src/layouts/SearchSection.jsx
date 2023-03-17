@@ -11,9 +11,9 @@ import Button from "../components/Button";
 import TabSelect from "../components/TabSelect";
 import axios from "axios";
 import TemanCard from "../components/TemanCard";
+import Cookies from "js-cookie";
 
-const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode }) => {
-  const modeFitur = ["Lapangan", "Teman", "Coach"];
+const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSelectedTeman, modeFitur}) => {
   const [filter, setFilter] = useState("");
   const [kota, setKota] = useState("");
   const [namaKota, setNamaKota] = useState("");
@@ -24,7 +24,7 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode }) => {
   const [listTeman, setListTeman] = useState([]);
   const [listKota, setListKota] = useState([]);
   const [isSearched, setIsSearched] = useState(false);
-
+  const navigate = useNavigate()
   const getKota = async () => {
     await axios
       .get(`${process.env.REACT_APP_BASEURL}/showKota`)
@@ -89,7 +89,7 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode }) => {
       .get(`${process.env.REACT_APP_BASEURL}/cariTeman/${olahraga}/${kota}`, {
         headers: {
           Accept: "application/json",
-          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+          Authorization: `Bearer ${Cookies.get("token")}`,
         },
       })
       .then((result) => {       
@@ -111,6 +111,7 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode }) => {
         getTeman();
         break;
       case 2:
+        ;
         break;
       default:
         break;
@@ -136,7 +137,7 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode }) => {
     <>
       {isSearched ? (
         <div className="w-full pt-[75px]">
-          <TabSelect />
+          <TabSelect nav1={modeFitur[mode]}/>
           {mode == 0 && (
             <div className="flex items-end justify-between mx-20 mb-2">
               <div className="flex items-center">
@@ -155,18 +156,23 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode }) => {
               </Button>
             </div>
           )}
+
+          {mode == 0 &&
           <div className="flex text-end h-[40px] justify-end items-center px-20 mt-8">
-            <LongFilterButton setFilter={setFilter} handleFilter={handleFilter}/>
+             <LongFilterButton setFilter={setFilter} handleFilter={handleFilter}/>
             <p>Filter</p>
-          </div>
+          </div>}
+          
           <div className="px-20 py-2 ">
             <p>Hasil pencarian:</p>
+
             <p>
               {mode == 0
                 ? `${listLapangan.length} hasil untuk lapangan ${namaOlahraga} di kota
               ${namaKota}`
                 : `${listTeman.length} hasil untuk kota dan olahraga yang di pilih`}
             </p>
+
             <div className="flex flex-col justify-center my-4">
               {listLapangan.map((item) => {
                 return (
@@ -186,6 +192,9 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode }) => {
                 return (
                   <div className="grid grid-cols-4">
                     <TemanCard
+                      setSelectedTeman={setSelectedTeman}
+                      key={item.id}
+                      id={item.id}
                       jk={item.user.jenisKelamin}
                       nama={item.user.name}
                       desc={item.deskripsi}
