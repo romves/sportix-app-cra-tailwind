@@ -19,7 +19,7 @@ const Home = ({setSelectedLapangan, userID}) => {
         setSemuaLapangan(response.data.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -30,7 +30,7 @@ const Home = ({setSelectedLapangan, userID}) => {
         setSemuaTeman(response.data.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -48,7 +48,7 @@ const Home = ({setSelectedLapangan, userID}) => {
         });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 

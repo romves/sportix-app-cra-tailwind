@@ -63,7 +63,7 @@
     @apply text-[20px] font-normal;
   }
   .beranda-lg-transp {
-    @apply text-[20px] font-normal text-neutral-400 text-opacity-60;
+    @apply text-[20px] font-normal text-neutral-500 text-opacity-60;
     ;
   }
 

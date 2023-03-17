@@ -19,7 +19,6 @@ const PilihJadwal = ({
   return (
     <div className="h-[800px] px-20 pt-8">
       <h3 className="mb-5">Pilih Jadwal sewa dan lapangan</h3>
-      <LongFilterButton />
       <div className="flex">
         <div className={"w-7/12"}>
           <div>

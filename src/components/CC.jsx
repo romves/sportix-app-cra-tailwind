@@ -12,23 +12,39 @@ const CC = ({
   setShowCC,
 }) => {
   return (
-    <div className="absolute flex items-center justify-center text-center h-screen w-screen">
-      <InputCard className="absolute m-auto w-[400px] h-[300px]">
-        <div className="flex flex-col items-center">
-          <InputField onChange={(e) => setCCNumber(e.target.value)} />
-          <InputField onChange={(e) => setCCCvv(e.target.value)} />
-          <InputField onChange={(e) => setExpMt(e.target.value)} />
-          <InputField onChange={(e) => setExpYr(e.target.value)} />
+    <div className="absolute flex items-center bg-black bg-opacity-50 justify-center text-center h-[100vh] w-[100vw]">
+      <InputCard className="absolute m-auto w-[500px] h-[300px]">
+        <div className="flex flex-col w-[440px]">
+          <div className="flex justify-between items-center">
+            <p>Card Number</p>
+            <InputField onChange={(e) => setCCNumber(e.target.value)} />
+          </div>
+          <div className="flex justify-between items-center">
+            CVV
+            <InputField onChange={(e) => setCCCvv(e.target.value)} />
+          </div>
+          <div className="flex justify-between items-center">
+            Exp Month
+            <InputField onChange={(e) => setExpMt(e.target.value)} />
+          </div>
+          <div className="flex justify-between items-center">
+            Exp Year
+            <InputField onChange={(e) => setExpYr(e.target.value)} />
+          </div>
         </div>
-        <button
-          type={"button"}
-          onClick={(e) => {
-            handleCC();
-            setShowCC();
-          }}
+        <div className="flex items-end justify-end pt-2"
         >
-          Submit
-        </button>
+          <Button
+            width={"180px"}
+            type={"button"}
+            onClick={(e) => {
+              handleCC();
+              setShowCC();
+            }}
+          >
+            Submit
+          </Button>
+        </div>
       </InputCard>
     </div>
   );

@@ -20,7 +20,7 @@ const CariCoach = () => {
         setListCoach(result.data.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -32,7 +32,7 @@ const CariCoach = () => {
     <div className="">
       <Utama>
         <div className="pt-[75px]">
-          <TabSelect />
+          <TabSelect nav1={'Coach'}/>
           <div className="mx-20">
             <p>Hasil pencarian:</p>
             <p>
@@ -41,7 +41,7 @@ const CariCoach = () => {
             <div className="flex flex-col justify-center">
               {listCoach.map((item) => {
                 return (
-                  <div className="grid grid-cols-4">
+                  <div className="grid grid-cols-4 my-8">
                     <CoachCard />
                   </div>
                 );

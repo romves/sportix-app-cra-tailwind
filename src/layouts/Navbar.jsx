@@ -25,7 +25,7 @@ const Navbar = () => {
         }
       )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         Cookies.remove("token");
         setTimeout(() => {
           window.location.reload();
@@ -33,7 +33,7 @@ const Navbar = () => {
         }, 1000);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 

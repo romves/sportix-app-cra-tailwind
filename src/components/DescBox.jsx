@@ -2,6 +2,7 @@ import React from "react";
 import InputCard from "./InputCard";
 import Button from "./Button";
 import { GoMail } from "react-icons/go";
+import map from "../assets/map.png";
 import {
   BsTelephone,
   BsWhatsapp,
@@ -14,7 +15,7 @@ import { SiJusteat } from "react-icons/si";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import { ImStarFull } from "react-icons/im";
 
-const DescBox = ({descData, handleSewa}) => {
+const DescBox = ({ descData, handleSewa }) => {
   return (
     <div>
       <div className="flex">
@@ -73,7 +74,18 @@ const DescBox = ({descData, handleSewa}) => {
               <HiOutlinePencilAlt className="mr-1" />
               Apa sih kelebihan lapangan ini?
             </p>
-            <div></div>
+            <div className="flex justify-around my-2">
+              <div className="flex text-center body-md-norm w-[150px] h-[40px] py-2 rounded-xl bg-primary-200 text-black items-center justify-center ${className}`">
+                Lokasi bersih
+              </div>
+              <div className="flex text-center body-md-norm w-[150px] h-[40px] py-2 rounded-xl bg-primary-200 text-black items-center justify-center ${className}`">
+                Lapangan luas
+              </div>
+              <div className="flex text-center body-md-norm w-[150px] h-[40px] py-2 rounded-xl bg-primary-200 text-black items-center justify-center ${className}`">
+                Admin ramah
+              </div>
+            </div>
+            
           </div>
           <div className="flex flex-col w-[550px] text-start border-b mt-1 pb-2">
             <h4 className="flex items-center beranda-lg-norm">
@@ -95,11 +107,13 @@ const DescBox = ({descData, handleSewa}) => {
               Lokasi
             </h4>
             <p>{descData.lokasi}</p>
-            <div></div>
+            <div className="mt-2">
+              <img src={map} alt="lokasi" />
+            </div>
           </div>
         </InputCard>
 
-{/* Right section */}
+        {/* Right section */}
         <div>
           <div className="flex mb-6">
             <InputCard
@@ -108,16 +122,18 @@ const DescBox = ({descData, handleSewa}) => {
               <p className="beranda-lg-norm text-primary-400">Membership</p>
               <h4 className="h4-nor">Rp300.000</h4>
               <p className="mb-6 body-text-nor-transp">/bulan</p>
-              <Button width={'180px'}>Daftar</Button>
+              <Button width={"180px"}>Daftar</Button>
             </InputCard>
-              
+
             <InputCard
               className={"w-[210px] h-[200px] text-center justify-center"}
             >
               <p className="beranda-lg-norm text-primary-400">Biaya Sewa</p>
               <h4 className="h4-nor">{descData.harga}</h4>
               <p className="mb-6 body-text-nor-transp">/sesi/jam</p>
-              <Button width={'180px'} onClick={() => handleSewa()}>Sewa</Button>
+              <Button width={"180px"} onClick={() => handleSewa()}>
+                Sewa
+              </Button>
             </InputCard>
           </div>
           <InputCard className={"h-[240px]"}>

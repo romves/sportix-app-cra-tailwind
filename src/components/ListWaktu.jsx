@@ -20,7 +20,7 @@ const ListWaktu = ({ buka, tutup, harga, setSelectedTimes, selectedTimes }) => {
       setSelectedTimes([...selectedTimes, jam]);
     }
   };
-  console.log(selectedTimes);
+  // console.log(selectedTimes);
   return (
     <div className="grid grid-cols-6 w-[600px] beranda-lg-norm">
       {Array.from({ length: tutup }, (_, i) => i + buka).map((jam, i) => (

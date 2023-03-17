@@ -7,11 +7,14 @@ import PilihJadwal from "../layouts/PilihJadwal";
 import Payment from "../layouts/Payment";
 import Cookies from "js-cookie";
 import CC from "../components/CC";
+import { useNavigate } from "react-router-dom";
 
 const Checkout = ({ jamBuka, jamTutup, selectedLapangan, userID }) => {
   const [selectedTimes, setSelectedTimes] = useState([]);
   const [showCC, setShowCC] = useState(false);
   const [ccToken, setCCToken] = useState(null);
+  const [accPay, setAccPay] = useState('');
+  const [link, setLink] = useState('');
   const [sewaAlat, setSewaAlat] = useState(false);
   const [lanjutPembayaran, setLanjutPembayaran] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
@@ -29,13 +32,13 @@ const Checkout = ({ jamBuka, jamTutup, selectedLapangan, userID }) => {
     buka: 0,
     tutup: 0,
   });
+  const navigate = useNavigate();
   const getHarga = () => {
     setTotal(descData.harga * selectedTimes.length);
     return descData.harga * selectedTimes.length;
   };
 
   const handleCC = async () => {
-    console.log("helaoo");
     await axios
       .post(
         `${process.env.REACT_APP_BASEURL}/getToken`,
@@ -54,11 +57,11 @@ const Checkout = ({ jamBuka, jamTutup, selectedLapangan, userID }) => {
         }
       )
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         setCCToken(result.data.token_id);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -87,11 +90,14 @@ const Checkout = ({ jamBuka, jamTutup, selectedLapangan, userID }) => {
         }
       )
       .then((result) => {
-        console.log(result);
-        console.log("sukses");
+        // console.log(result);
+        // console.log("sukses");
+        window.open(result.data.data.redirect_url)
+        navigate('/')
+        alert('Pembayaran telah dilakukan')
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -102,7 +108,7 @@ const Checkout = ({ jamBuka, jamTutup, selectedLapangan, userID }) => {
       )
       .then((result) => {
         const data = result.data.data;
-        console.log(result);
+        // console.log(result);
         setDescData({
           nama: data.namaLapangan,
           harga: data.harga,
@@ -113,7 +119,7 @@ const Checkout = ({ jamBuka, jamTutup, selectedLapangan, userID }) => {
         });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -145,12 +151,17 @@ const Checkout = ({ jamBuka, jamTutup, selectedLapangan, userID }) => {
         ) : (
           ""
         )}
-        <TabSelect />
+        {accPay ? (
+          ''
+        ) : ''}
+        <TabSelect nav1={'Checkout'} />
         {lanjutPembayaran ? (
           <Payment
+            userID={userID}
             total={total}
             setShowCC={setShowCC}
             handleCheckout={handleCheckout}
+            ccToken={ccToken}
           />
         ) : (
           <PilihJadwal

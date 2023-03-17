@@ -33,7 +33,7 @@ const UserProfile = ({ userID }) => {
         },
       })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         setUserData({
           nomor: response.data.data.nomor,
           deskripsi: response.data.data.deskripsi,
@@ -47,12 +47,13 @@ const UserProfile = ({ userID }) => {
         });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
   const handleEditProfile = async () => {
-    console.log("halo");
+    alert('Perubahan disimpan')
+    // console.log("halo");
     await axios
       .post(
         "https://ahmadsultan.aenzt.tech/api/editUser",
@@ -71,11 +72,11 @@ const UserProfile = ({ userID }) => {
         }
       )
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         getUserProfile();
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -150,6 +151,7 @@ const UserProfile = ({ userID }) => {
                 </div>
 
                 <div className="w-[33vw] border rounded-xl flex flex-col p-8">
+                  <p className="body-sm-norm ml-2">Nama</p>
                   <InputField
                     type={"text"}
                     value={userData.name}
@@ -157,13 +159,15 @@ const UserProfile = ({ userID }) => {
                       setUserData({ ...userData, name: e.target.value })
                     }
                   />
+                  <p className="body-sm-norm ml-2">Laki-laki</p>
                   <InputField
                     type={"text"}
                     value={userData.jenisKelamin}
-                    onChange={(e) =>
+                    /* onChange={(e) =>
                       setUserData({ ...userData, jenisKelamin: e.target.value })
-                    }
+                    } */
                   />
+                  <p className="body-sm-norm ml-2">Pekerjaan</p>
                   <InputField
                     type={"text"}
                     value={userData.pekerjaan}
@@ -171,12 +175,13 @@ const UserProfile = ({ userID }) => {
                       setUserData({ ...userData, pekerjaan: e.target.value })
                     }
                   />
+                  <p className="body-sm-norm ml-2">Umur</p>
                   <InputField
                     type={"number"}
                     value={userData.umur}
-                    onChange={(e) =>
+                    /* onChange={(e) =>
                       setUserData({ ...userData, umur: e.target.value })
-                    }
+                    } */
                   />
                   <div className="flex items-end justify-end mt-8">
                     <Button width={'180px'} onClick={() => handleEditProfile()}>Simpan</Button>

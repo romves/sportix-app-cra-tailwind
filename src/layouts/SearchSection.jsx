@@ -31,7 +31,7 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSele
         setListKota(result.data.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -42,7 +42,7 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSele
         setListOlahraga(result.data.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -53,7 +53,7 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSele
         setListLapangan(result.data.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -66,7 +66,7 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSele
         setListLapangan(result.data.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -79,7 +79,7 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSele
         setListLapangan(result.data.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -92,11 +92,11 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSele
         },
       })
       .then((result) => { 
-        console.log(listTeman)      
+        // console.log(listTeman)      
         setListTeman(result.data.data);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 
@@ -148,7 +148,7 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSele
                   </p>
                 </div>
               </div>
-              <Button className="mb-2" onClick={handleSearch}>
+              <Button width={'180px'} className="mb-2" onClick={handleSearch}>
                 Ganti
               </Button>
             </div>
@@ -171,10 +171,10 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSele
             </p>
 
             <div className="flex flex-col justify-center my-4">
-              {listLapangan.map((item) => {
+              {listLapangan.map((item, i) => {
                 return (
                   <LapanganCard
-                    key={item.id}
+                    key={i}
                     nama={item.namaLapangan}
                     harga={item.harga}
                     jamBuka={item.jamBuka}
@@ -185,12 +185,12 @@ const SearchSection = ({ head, desc, bgColor, setSelectedLapangan, mode, setSele
                   />
                 );
               })}
-              {listTeman.map((item) => {
+              {listTeman.map((item, i) => {
                 return (
                   <div className="grid grid-cols-4">
                     <TemanCard
                       setSelectedTeman={setSelectedTeman}
-                      key={item.id}
+                      key={i}
                       id={item.id}
                       jk={item.user.jenisKelamin}
                       nama={item.user.name}

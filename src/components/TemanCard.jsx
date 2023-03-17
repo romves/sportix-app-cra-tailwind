@@ -9,7 +9,6 @@ const TemanCard = ({ nama, umur, desc, jk, setSelectedTeman, id }) => {
   const navigate = useNavigate();
   const handleGetDesc = () => {
     setSelectedTeman(id)
-    console.log(id)
     navigate('/cariteman/desc')
   }
   return (

@@ -32,7 +32,7 @@ function App() {
     status: "",
   });
   const navigate = useNavigate();
-  console.log(userID);
+  // console.log(userID);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -42,19 +42,19 @@ function App() {
         password: password,
       })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
         Cookies.set("token", response.data.token);
         Cookies.set("expirationTime", new Date().getTime());
         navigate("/");
         if (response.data.id) {
           setUserID(response.data.id);
-          console.log(userID);
+          // console.log(userID);
         } else {
-          console.log("siuuuuu");
+          // console.log("siuuuuu");
         }
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
         setError(error.response.data);
       });
   };
@@ -64,7 +64,7 @@ function App() {
     const token = Cookies.get("token");
     const expirationTime = Cookies.get("expirationTime");
 
-    console.log(Cookies.get("token"));
+    // console.log(Cookies.get("token"));
 
     if (
       token &&
@@ -88,7 +88,7 @@ function App() {
       }
     }, 1000);
 
-    console.log(interval);
+    // console.log(interval);
 
     return () => clearInterval(interval);
   }, []);
